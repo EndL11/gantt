@@ -27,6 +27,7 @@ g.setOptions({
       title: "Part",
     },
   },
+  vMinDate: Date.now(),
   vEvents: {
     taskname: nameChange,
     res: console.log,
@@ -37,12 +38,20 @@ g.setOptions({
     beforeDraw: () => console.log("before draw listener"),
     afterDraw: callback,
   },
+  vEventsChange: {
+    taskname: editValue, // if you need to use the this scope, do: editValue.bind(this)
+    res: editValue,
+    dur: editValue,
+    start: editValue,
+    end: editValue,
+    planstart: editValue,
+    planend: editValue,
+  },
   vEditable: true,
   vUseSort: true,
   vShowCost: false,
   vShowAddEntries: false,
   vShowComp: false,
-  vShowTaskInfoLink: false,
   vUseSingleCell: 10000, // Set the threshold cell per table row (Helps performance for large data.
   vFormatArr: ["Day", "Week", "Month", "Quarter"], // Even with setUseSingleCell using Hour format on such a large chart can cause issues in some browsers,
 });
@@ -108,5 +117,17 @@ function endDateChange(taskname, event, element) {
   date.setDate(date.getDate() + 1);
   taskname.setEnd(date);
   console.log("End date changed");
+  g.Draw();
+}
+
+function editValue(list, task, event, cell, column) {
+  console.log(list, task, event, cell, column)
+  const found = list.find(item => item.pID == task.getOriginalID());
+  if (!found) {
+    return;
+  }
+  else {
+    found[column] = event ? event.target.value : '';
+  }
   g.Draw();
 }
