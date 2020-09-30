@@ -5,3 +5,8 @@
 .gstartdate > div{
     background-color: red;
 }
+
+.task_todocomplete, .task_inprogresscomplete,
+.task_donecomplete, .task_oncheckingcomplete{
+    display: none;
+}

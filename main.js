@@ -25,6 +25,7 @@ g.setOptions({
     },
     part: {
       title: "Part",
+      class: "part_class_cool"
     },
   },
   vMinDate: Date.now(),
@@ -47,6 +48,12 @@ g.setOptions({
     planstart: editValue,
     planend: editValue,
   },
+  vResources: [
+    { id: 0, name: 'Anybody' },
+    { id: 1, name: 'Mario' },
+    { id: 2, name: 'Henrique' },
+    { id: 3, name: 'Pedro' }
+  ],
   vEditable: true,
   vUseSort: true,
   vShowCost: false,
@@ -86,14 +93,8 @@ g.AddTaskItemObject({
 g.setScrollTo("today");
 g.setCaptionType("Resource");
 g.Draw();
+
 // document.addEventListener('DOMContentLoaded', function(){
-//   let complete = document.querySelectorAll("td.gpccomplete, .gplan");
-//   console.log(complete);
-//   complete.forEach(el => {
-//     console.log(el.style);
-//     el.style.backgroundColor = "red";
-//     //el.style.display = "none";
-//   });
 // });
 
 function callback() {
@@ -130,4 +131,27 @@ function editValue(list, task, event, cell, column) {
     found[column] = event ? event.target.value : '';
   }
   g.Draw();
+}
+
+function getUpdatedUser(obj){
+  //  gets api task info object
+  //  returns user object for jsgantt chart
+  let newObject = {}
+  newObject.status = obj.exec_status;
+  newObject.pClass = `task_${status.toLowerCase()}`;
+  newObject.pStart = obj.start_date;
+  newObject.pEnd = obj.finish_date;
+  newObject.pID = 1;
+  newObject.pName = obj.task;
+  newObject.pPlanStart = obj.planned_start;
+  newObject.pPlanEnd = obj.planned_finish;
+  newObject.pRes = obj.executor;
+  newObject.pComp = 0;
+  newObject.pGroup = 0;
+  newObject.pParent = 0;
+  newObject.pOpen = 1;
+  newObject.pNotes = obj.warning;
+  newObject.part = obj.part;
+  newObject.partName = obj.part_name;
+  return newObject;
 }
