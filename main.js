@@ -1,6 +1,79 @@
 // const API_KEY = "3042b9bfd374130956c1e55d218c8156";
 // const url_api = `https://api.openweathermap.org/data/2.5/weather?lang=ua&q=rivne&appid=${API_KEY}&units=metric`;
 
+const urk_lang = {
+  'january': 'Січень',
+  'february': 'Лютий',
+  'march': 'Березень',
+  'april': 'Квітень',
+  'maylong': 'Травень',
+  'june': 'Червень',
+  'july': 'Липень',
+  'august': 'Серпень', 'september': 'Вересень',
+  'october': 'Жовтень',
+  'november': 'Листопад',
+  'december': 'Грудень',
+  'jan': 'Січ',
+  'feb': 'Лют',
+  'mar': 'Берез',
+  'apr': 'Квіт',
+  'may': 'Трав',
+  'jun': 'Черв',
+  'jul': 'Лип',
+  'aug': 'Серп',
+  'sep': 'Верес',
+  'oct': 'Жовт',
+  'nov': 'Лист',
+  'dec': 'Груд',
+  'sunday': 'Неділя',
+  'monday': 'Понеділок',
+  'tuesday': 'Вівторок',
+  'wednesday': 'Середа',
+  'thursday': 'Четвер',
+  'friday': 'П\'ятниця',
+  'saturday': 'Субота',
+  'sun': '	Нд',
+  'mon': '	Пн',
+  'tue': '	Вт',
+  'wed': '	Ср',
+  'thu': '	Чт',
+  'fri': '	Пт',
+  'sat': '	Сб',
+  'resource': 'Виконавець',
+  'duration': 'Тривалість',
+  'comp': '% виконання',
+  'completion': 'Виконано',
+  'startdate': 'Поч. дата',
+  'planstartdate': 'План. поч. дата',
+  'enddate': 'Кін. дата',
+  'planenddate': 'План. кін. дата',
+  'cost': 'Cost',
+  'moreinfo': 'Деталі',
+  'notes': 'Подробиці',
+  'format': 'Формат',
+  'hour': 'Година',
+  'day': 'День',
+  'week': 'Тиждень',
+  'month': 'Місяць',
+  'quarter': 'Кварт',
+  'hours': 'Годин',
+  'days': 'Днів',
+  'weeks': 'Тижнів',
+  'months': 'Місяців',
+  'quarters': 'Кварталів',
+  'hr': 'год.',
+  'dy': 'дн.',
+  'wk': 'тиж.',
+  'mth': 'міс.',
+  'qtr': 'кв.',
+  'hrs': 'год.',
+  'dys': 'дн.',
+  'wks': 'тиж.',
+  'mths': 'міс.',
+  'qtrs': 'кв.',
+  'tooltipLoading': 'Завантаження...'
+};
+
 const status = {
   "ToDo": "В черзі",
   "InProgress": "Виконується",
@@ -22,6 +95,9 @@ const setup = async () => {
     "day"
   );
 
+  g.addLang("ua", urk_lang);
+
+
   g.setOptions({
     vResources: resources,
     vCaptionType: "Resource", // Set to Show Caption : None,Caption,Resource,Duration,Complete,
@@ -34,7 +110,7 @@ const setup = async () => {
     vDateTaskDisplayFormat: "day dd month yyyy", // Shown in tool tip box
     vDayMajorDateDisplayFormat: "mon yyyy - Week ww", // Set format to dates in the "Major" header of the "Day" view
     vWeekMinorDateDisplayFormat: "dd mon", // Set format to display dates in the "Minor" header of the "Week" view
-    vLang: "en",
+    vLang: "ua",
     vShowTaskInfoLink: 0, // Show link in tool tip (0/1)
     vShowEndWeekDate: 0, // Show/Hide the date for the last day of the week in header for daily
     vAdditionalHeaders: {

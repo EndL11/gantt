@@ -144,7 +144,6 @@ td.gspanning {
 /* needed for IE8 */
 
 .gtaskname {
-  min-width: 170px;
   max-width: 170px;
   width: 170px;
   font-size: 9px;
@@ -165,9 +164,9 @@ td.gspanning {
 .gselector {
   text-align: left;
   white-space: nowrap;
-  min-width: 170px;
-  max-width: 170px;
-  width: 170px;
+  min-width: 300px;
+  max-width: 300px;
+  width: 300px;
 }
 
 .gformlabel {
