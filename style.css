@@ -90,3 +90,7 @@
   min-width: 100%;
   max-width: 100%;
 }
+
+.gadditional-status div{
+  line-height: 2;
+}

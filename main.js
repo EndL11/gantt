@@ -1,102 +1,118 @@
 // const API_KEY = "3042b9bfd374130956c1e55d218c8156";
 // const url_api = `https://api.openweathermap.org/data/2.5/weather?lang=ua&q=rivne&appid=${API_KEY}&units=metric`;
 
+const allProperties = {
+  pID: "pk",
+  pStart: "start_date",
+  pEnd: "finish_date",
+  pPlanStart: "planned_start",
+  pPlanEnd: "planned_finish",
+  status: "exec_status",
+  pRes: "executor",
+  pName: "name",
+};
+
 const urk_lang = {
-  'january': 'Січень',
-  'february': 'Лютий',
-  'march': 'Березень',
-  'april': 'Квітень',
-  'maylong': 'Травень',
-  'june': 'Червень',
-  'july': 'Липень',
-  'august': 'Серпень', 'september': 'Вересень',
-  'october': 'Жовтень',
-  'november': 'Листопад',
-  'december': 'Грудень',
-  'jan': 'Січ',
-  'feb': 'Лют',
-  'mar': 'Берез',
-  'apr': 'Квіт',
-  'may': 'Трав',
-  'jun': 'Черв',
-  'jul': 'Лип',
-  'aug': 'Серп',
-  'sep': 'Верес',
-  'oct': 'Жовт',
-  'nov': 'Лист',
-  'dec': 'Груд',
-  'sunday': 'Неділя',
-  'monday': 'Понеділок',
-  'tuesday': 'Вівторок',
-  'wednesday': 'Середа',
-  'thursday': 'Четвер',
-  'friday': 'П\'ятниця',
-  'saturday': 'Субота',
-  'sun': '	Нд',
-  'mon': '	Пн',
-  'tue': '	Вт',
-  'wed': '	Ср',
-  'thu': '	Чт',
-  'fri': '	Пт',
-  'sat': '	Сб',
-  'resource': 'Виконавець',
-  'duration': 'Тривалість',
-  'comp': '% виконання',
-  'completion': 'Виконано',
-  'startdate': 'Поч. дата',
-  'planstartdate': 'План. поч. дата',
-  'enddate': 'Кін. дата',
-  'planenddate': 'План. кін. дата',
-  'cost': 'Cost',
-  'moreinfo': 'Деталі',
-  'notes': 'Подробиці',
-  'format': 'Формат',
-  'hour': 'Година',
-  'day': 'День',
-  'week': 'Тиждень',
-  'month': 'Місяць',
-  'quarter': 'Кварт',
-  'hours': 'Годин',
-  'days': 'Днів',
-  'weeks': 'Тижнів',
-  'months': 'Місяців',
-  'quarters': 'Кварталів',
-  'hr': 'год.',
-  'dy': 'дн.',
-  'wk': 'тиж.',
-  'mth': 'міс.',
-  'qtr': 'кв.',
-  'hrs': 'год.',
-  'dys': 'дн.',
-  'wks': 'тиж.',
-  'mths': 'міс.',
-  'qtrs': 'кв.',
-  'tooltipLoading': 'Завантаження...'
+  january: "Січень",
+  february: "Лютий",
+  march: "Березень",
+  april: "Квітень",
+  maylong: "Травень",
+  june: "Червень",
+  july: "Липень",
+  august: "Серпень",
+  september: "Вересень",
+  october: "Жовтень",
+  november: "Листопад",
+  december: "Грудень",
+  jan: "Січ",
+  feb: "Лют",
+  mar: "Берез",
+  apr: "Квіт",
+  may: "Трав",
+  jun: "Черв",
+  jul: "Лип",
+  aug: "Серп",
+  sep: "Верес",
+  oct: "Жовт",
+  nov: "Лист",
+  dec: "Груд",
+  sunday: "Неділя",
+  monday: "Понеділок",
+  tuesday: "Вівторок",
+  wednesday: "Середа",
+  thursday: "Четвер",
+  friday: "П'ятниця",
+  saturday: "Субота",
+  sun: "	Нд",
+  mon: "	Пн",
+  tue: "	Вт",
+  wed: "	Ср",
+  thu: "	Чт",
+  fri: "	Пт",
+  sat: "	Сб",
+  resource: "Виконавець",
+  duration: "Тривалість",
+  comp: "% виконання",
+  completion: "Виконано",
+  startdate: "Поч. дата",
+  planstartdate: "План. поч. дата",
+  enddate: "Кін. дата",
+  planenddate: "План. кін. дата",
+  cost: "Cost",
+  moreinfo: "Деталі",
+  notes: "Подробиці",
+  format: "Формат",
+  hour: "Година",
+  day: "День",
+  week: "Тиждень",
+  month: "Місяць",
+  quarter: "Кварт",
+  hours: "Годин",
+  days: "Днів",
+  weeks: "Тижнів",
+  months: "Місяців",
+  quarters: "Кварталів",
+  hr: "год.",
+  dy: "дн.",
+  wk: "тиж.",
+  mth: "міс.",
+  qtr: "кв.",
+  hrs: "год.",
+  dys: "дн.",
+  wks: "тиж.",
+  mths: "міс.",
+  qtrs: "кв.",
+  tooltipLoading: "Завантаження...",
 };
 
 const status = {
-  "ToDo": "В черзі",
-  "InProgress": "Виконується",
-  "OnChecking": "На перевірці",
-  "Done": "Виконано"
-}
+  ToDo: "В черзі",
+  InProgress: "Виконується",
+  OnChecking: "На перевірці",
+  Done: "Виконано",
+};
 
 const getResponseData = async (url) => {
-  return await fetch(url).then(async (res) => {
+  return await fetch(`/${url}`).then(async (res) => {
     return await res.json().then(async (data) => {
       return await data;
     });
   });
 };
+
 const setup = async () => {
-  let resources = await getResponseData("api_resources.json");
+  //let resources = await getResponseData("api_resources.json");
   var g = new JSGantt.GanttChart(
     document.getElementById("GanttChartDIV"),
     "day"
   );
 
-  g.addLang("ua", urk_lang);
+  data.forEach((el) => {
+    g.AddTaskItemObject(createTaskFromProject(el, g));
+  });
 
+  g.addLang("ua", urk_lang);
 
   g.setOptions({
     vResources: resources,
@@ -119,18 +135,18 @@ const setup = async () => {
         title: "Статус",
       },
       object_code: {
-        title: "Object_code"
-      }
+        title: "Object_code",
+      },
     },
     vEvents: {
-      taskname: console.log,
-      res: console.log,
-      start: console.log,
-      end: console.log,
-      planstart: console.log,
-      planend: console.log,
+      // taskname: console.log,
+      // res: console.log,
+      // start: console.log,
+      // end: console.log,
+      // planstart: console.log,
+      // planend: console.log,
       beforeDraw: () => console.log("before draw listener"),
-      afterDraw: () => console.log("after draw listener"),
+      afterDraw: hideDurationInput,
     },
     vEventsChange: {
       taskname: editValue, // if you need to use the this scope, do: editValue.bind(this)
@@ -152,132 +168,104 @@ const setup = async () => {
     vFormatArr: ["Day", "Week", "Month", "Quarter"], // Even with setUseSingleCell using Hour format on such a large chart can cause issues in some browsers,
   });
 
-  // fetch("api_data.json").then(async (data) => {
-  //   await data.json().then(async (array) => {
-  //     await array.forEach((el) => {
-  //       g.AddTaskItemObject(getUpdatedUser(el));
-  //     });
-  //     g.Draw();
-  //   });
-  // });
-
-  fetch("data.json").then(async (data) => {
-    await data.json().then(async (array) => {
-      await array.forEach((el) => {
-        g.AddTaskItemObject(createTaskFromProject(el, g));
-      });
-      g.Draw();
-    });
-  });
-
+  g.Draw();
   g.setScrollTo("today");
 };
 
-// Load from a Json url
-
-//JSGantt.parseJSON("./data.json", g);
-
-// Or Adding  Manually
-// g.AddTaskItemObject({
-//   pID: 1,
-//   pName: "Define Chart <strong>API</strong>",
-//   pStart: "2017-02-25",
-//   pEnd: "2017-03-17",
-//   pPlanStart: "2017-04-01",
-//   pPlanEnd: "2017-04-15 12:00",
-//   pClass: "ggroupblack",
-//   pRes: "Brian",
-//   pParent: 0,
-// });
-
-// document.addEventListener('DOMContentLoaded', function(){
-// });
-
-function nameChange(taskname, event, element) {
-  taskname.setName("New name");
-  console.log("Name changed");
-  g.Draw();
-}
-
-function startDateChange(taskname, event, element) {
-  taskname.setStart(new Date(Date.now()));
-  console.log("Start date changed");
-  g.Draw();
-}
-
-function endDateChange(taskname, event, element) {
-  let date = new Date(Date.now());
-  date.setDate(date.getDate() + 1);
-  taskname.setEnd(date);
-  console.log("End date changed");
-  g.Draw();
-}
-
 function editValue(list, task, event, cell, column) {
-  console.log(list, task, event, cell, column);
+  const pk = task.getOriginalID();
+  const apiType = task.getGroup() == 1 ? "project" : "task";
+  const newValue = event.target.value.trim().replace(" ", "-");
+  let fieldName = !allProperties[column] ? column : allProperties[column];
+  const api_request = `/${apiType}/${pk}/?${fieldName}=${newValue}`;
+  console.log(api_request);
+  //console.log(list, task, event, cell, column);
   const found = list.find((item) => item.pID == task.getOriginalID());
   if (!found) {
     return;
   } else {
     found[column] = event ? event.target.value : "";
   }
-  g.Draw();
 }
 
 function createTaskFromProject(obj, g) {
   //  gets api project info object
   //  returns object for jsgantt chart
+
+  //  TODO: make it with Object.keys() and created object the same to status
+
   let newObject = {};
 
-  newObject.status = obj.hasOwnProperty("exec_status")
-    ? status[obj.exec_status]
-    : "";
+  // newObject.status = obj.hasOwnProperty("exec_status")
+  //   ? status[obj.exec_status]
+  //   : "";
+  Object.keys(allProperties).forEach((key) => {
+    if (key === "status") {
+      newObject[key] = status[obj[allProperties[key]]];
+      return;
+    }
+    newObject[key] = obj[allProperties[key]];
+  });
   newObject.pClass = `task_${obj.exec_status.toLowerCase()}`;
-  newObject.pStart = obj.start_date;
-  newObject.pEnd = obj.finish_date;
-  newObject.pID = obj.pk;
-  newObject.pName = obj.name;
-  newObject.pPlanStart = obj.planned_start;
-  newObject.pPlanEnd = obj.planned_finish;
-  newObject.pRes = obj.hasOwnProperty("pm")
-    ? obj.pm
-    : "";
+  // newObject.pStart = obj.start_date;
+  // newObject.pEnd = obj.finish_date;
+  // newObject.pID = obj.pk;
+  // newObject.pName = obj.name;
+  // newObject.pPlanStart = obj.planned_start;
+  // newObject.pPlanEnd = obj.planned_finish;
+  // newObject.pRes = obj.hasOwnProperty("pm") ? obj.pm : "";
   newObject.pComp = 0;
   newObject.object_code = obj.object_code;
-  newObject.pGroup = 1;   //  1 for project task, 0 for task
+  newObject.pGroup = 1; //  1 for project task, 0 for task
   newObject.pParent = 0;
   newObject.pOpen = 1;
-  obj.tasks.forEach( task => g.AddTaskItemObject(createTaskFromProjectTask(task, obj.pk)));
-  console.log(obj, newObject);
+  obj.tasks.forEach((task) =>
+    g.AddTaskItemObject(createTaskFromProjectTask(task, obj.pk))
+  );
   return newObject;
 }
 
-function createTaskFromProjectTask(obj, projectID){
+function createTaskFromProjectTask(obj, projectID) {
   //  gets api task info object
   //  returns object for jsgantt chart
   let newObject = {};
 
-  newObject.status = obj.hasOwnProperty("exec_status")
-    ? status[obj.exec_status]
-    : "";
+  // newObject.status = obj.hasOwnProperty("exec_status")
+  //   ? status[obj.exec_status]
+  //   : "";
+  Object.keys(allProperties).forEach((key) => {
+    if (key === "status") {
+      newObject[key] = status[obj[allProperties[key]]];
+      return;
+    }
+    newObject[key] = obj[allProperties[key]];
+  });
   newObject.pClass = `task_${obj.exec_status.toLowerCase()}`;
-  newObject.pStart = obj.start_date;
-  newObject.pEnd = obj.finish_date;
-  newObject.pID = obj.pk;
-  newObject.pName = obj.part_name;
-  newObject.pPlanStart = obj.planned_start;
-  newObject.pPlanEnd = obj.planned_finish;
+  // newObject.pStart = obj.start_date;
+  // newObject.pEnd = obj.finish_date;
+  // newObject.pID = obj.pk;
+  // newObject.pPlanStart = obj.planned_start;
+  // newObject.pPlanEnd = obj.planned_finish;
+  // newObject.pName = obj.part_name;
   newObject.object_code = obj.task;
-  newObject.pRes = obj.hasOwnProperty("executor")
-    ? obj.executor
-    : "";
+  // newObject.pRes = obj.hasOwnProperty("executor") ? obj.executor : "";
   newObject.pComp = 0;
-  newObject.pGroup = 0;   //  1 for project task, 0 for task
+  newObject.pGroup = 0; //  1 for project task, 0 for task
   newObject.pParent = projectID;
   newObject.pOpen = 1;
   newObject.pNotes = obj.hasOwnProperty("warning") ? obj.warning : "";
-  console.log(obj, newObject);
   return newObject;
+}
+
+function hideDurationInput() {
+  console.log("after draw listener");
+  const allDurationInputElement = document.querySelectorAll(".gduration div");
+  for (let i = 0; i < allDurationInputElement?.length; i++) {
+    const inputValue = allDurationInputElement[i].firstChild.value;
+    console.log(allDurationInputElement[i].firstChild);
+    allDurationInputElement[i].firstChild.remove();
+    allDurationInputElement[i].innerHTML = inputValue;
+  }
 }
 
 setup();
