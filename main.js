@@ -1,6 +1,3 @@
-// const API_KEY = "3042b9bfd374130956c1e55d218c8156";
-// const url_api = `https://api.openweathermap.org/data/2.5/weather?lang=ua&q=rivne&appid=${API_KEY}&units=metric`;
-
 const allProperties = {
   pID: "pk",
   pStart: "start_date",
@@ -67,7 +64,7 @@ const urk_lang = {
   day: "День",
   week: "Тиждень",
   month: "Місяць",
-  quarter: "Кварт",
+  quarter: "Квартал",
   hours: "Годин",
   days: "Днів",
   weeks: "Тижнів",
@@ -91,14 +88,6 @@ const status = {
   InProgress: "Виконується",
   OnChecking: "На перевірці",
   Done: "Виконано",
-};
-
-const getResponseData = async (url) => {
-  return await fetch(`/${url}`).then(async (res) => {
-    return await res.json().then(async (data) => {
-      return await data;
-    });
-  });
 };
 
 const setup = async () => {
@@ -146,7 +135,7 @@ const setup = async () => {
       // planstart: console.log,
       // planend: console.log,
       beforeDraw: () => console.log("before draw listener"),
-      afterDraw: hideDurationInput,
+      afterDraw: afterDrawHandler,
     },
     vEventsChange: {
       taskname: editValue, // if you need to use the this scope, do: editValue.bind(this)
@@ -191,8 +180,6 @@ function editValue(list, task, event, cell, column) {
 function createTaskFromProject(obj, g) {
   //  gets api project info object
   //  returns object for jsgantt chart
-
-  //  TODO: make it with Object.keys() and created object the same to status
 
   let newObject = {};
 
@@ -257,15 +244,21 @@ function createTaskFromProjectTask(obj, projectID) {
   return newObject;
 }
 
-function hideDurationInput() {
-  console.log("after draw listener");
-  const allDurationInputElement = document.querySelectorAll(".gduration div");
+function hideElementsInputBySelector(selector){
+  const allDurationInputElement = document.querySelectorAll(selector);
   for (let i = 0; i < allDurationInputElement?.length; i++) {
     const inputValue = allDurationInputElement[i].firstChild.value;
     console.log(allDurationInputElement[i].firstChild);
     allDurationInputElement[i].firstChild.remove();
     allDurationInputElement[i].innerHTML = inputValue;
   }
+}
+
+function afterDrawHandler(){
+  console.log("after draw listener");
+  hideElementsInputBySelector(".gduration div");
+  hideElementsInputBySelector(".ggroupitem .gresource div");
+  hideElementsInputBySelector(".gstartdate div, .genddate div");
 }
 
 setup();
