@@ -156,7 +156,7 @@ const setup = async () => {
     vUseSingleCell: 25000, // Set the threshold cell per table row (Helps performance for large data.
     vFormatArr: ["Day", "Week", "Month", "Quarter"], // Even with setUseSingleCell using Hour format on such a large chart can cause issues in some browsers,
   });
-
+  g.setShowTaskInfoComp(false);
   g.Draw();
   g.setScrollTo("today");
 };
