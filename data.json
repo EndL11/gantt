@@ -8,7 +8,7 @@
         "planned_start": "2020-09-20",
         "planned_finish": "2020-11-11",
         "exec_status": "InProgress",
-        "pm": "Лущевський Борис",   
+        "executor": "Лущевський Борис",   
         "tasks": [
             {
                 "pk": 9,   
@@ -57,7 +57,7 @@
         "planned_start": "2020-08-02",
         "planned_finish": "2020-11-01",
         "exec_status": "InProgress",
-        "pm": "Ярута Андрій",   
+        "executor": "Ярута Андрій",   
         "tasks": [
             {
                 "pk": 291,   

@@ -98,7 +98,7 @@ const setup = async () => {
   );
 
   data.forEach((el) => {
-    g.AddTaskItemObject(createTaskFromProject(el, g));
+    g.AddTaskItemObject(createTask(el, g));
   });
 
   g.addLang("ua", urk_lang);
@@ -177,88 +177,48 @@ function editValue(list, task, event, cell, column) {
   }
 }
 
-function createTaskFromProject(obj, g) {
+function createTask(obj, g) {
   //  gets api project info object
   //  returns object for jsgantt chart
-
   let newObject = {};
-
-  // newObject.status = obj.hasOwnProperty("exec_status")
-  //   ? status[obj.exec_status]
-  //   : "";
   Object.keys(allProperties).forEach((key) => {
     if (key === "status") {
-      newObject[key] = status[obj[allProperties[key]]];
+      newObject[key] = status[obj[allProperties[key]]];       //  take status value for status collection
       return;
     }
-    newObject[key] = obj[allProperties[key]];
+    newObject[key] = obj[allProperties[key]];                 //  take dynamic key for object from properties of jsgantt value
   });
-  newObject.pClass = `task_${obj.exec_status.toLowerCase()}`;
-  // newObject.pStart = obj.start_date;
-  // newObject.pEnd = obj.finish_date;
-  // newObject.pID = obj.pk;
-  // newObject.pName = obj.name;
-  // newObject.pPlanStart = obj.planned_start;
-  // newObject.pPlanEnd = obj.planned_finish;
-  // newObject.pRes = obj.hasOwnProperty("pm") ? obj.pm : "";
-  newObject.pComp = 0;
-  newObject.object_code = obj.object_code;
-  newObject.pGroup = 1; //  1 for project task, 0 for task
-  newObject.pParent = 0;
-  newObject.pOpen = 1;
-  obj.tasks.forEach((task) =>
-    g.AddTaskItemObject(createTaskFromProjectTask(task, obj.pk))
-  );
-  return newObject;
-}
-
-function createTaskFromProjectTask(obj, projectID) {
-  //  gets api task info object
-  //  returns object for jsgantt chart
-  let newObject = {};
-
-  // newObject.status = obj.hasOwnProperty("exec_status")
-  //   ? status[obj.exec_status]
-  //   : "";
-  Object.keys(allProperties).forEach((key) => {
-    if (key === "status") {
-      newObject[key] = status[obj[allProperties[key]]];
-      return;
-    }
-    newObject[key] = obj[allProperties[key]];
-  });
-  newObject.pClass = `task_${obj.exec_status.toLowerCase()}`;
-  // newObject.pStart = obj.start_date;
-  // newObject.pEnd = obj.finish_date;
-  // newObject.pID = obj.pk;
-  // newObject.pPlanStart = obj.planned_start;
-  // newObject.pPlanEnd = obj.planned_finish;
-  // newObject.pName = obj.part_name;
-  newObject.object_code = obj.task;
-  // newObject.pRes = obj.hasOwnProperty("executor") ? obj.executor : "";
-  newObject.pComp = 0;
-  newObject.pGroup = 0; //  1 for project task, 0 for task
-  newObject.pParent = projectID;
-  newObject.pOpen = 1;
+  newObject.pClass = `task_${obj.exec_status.toLowerCase()}`; //  set custom class for task
+  newObject.pComp = 0;                                        //  % of complete
+  newObject.object_code = obj.hasOwnProperty("tasks") ? obj.object_code : obj.task;
+  newObject.pGroup = obj.hasOwnProperty("tasks") ? 1 : 0;     //  1 for project task, 0 for task
+  newObject.pParent = obj.hasOwnProperty("tasks") ? 0 : "";
+  newObject.pOpen = 1;                                        //  0 for rendering colapsed projects and tasks
   newObject.pNotes = obj.hasOwnProperty("warning") ? obj.warning : "";
+  if (obj.hasOwnProperty("tasks")) {
+    obj.tasks.forEach((task) => {
+      const createdObject = createTask(task, g);
+      createdObject.pParent = obj.pk;                         //  set parent id from project
+      g.AddTaskItemObject(createdObject);
+    });
+  }
   return newObject;
 }
 
-function hideElementsInputBySelector(selector){
-  const allDurationInputElement = document.querySelectorAll(selector);
-  for (let i = 0; i < allDurationInputElement?.length; i++) {
-    const inputValue = allDurationInputElement[i].firstChild.value;
-    console.log(allDurationInputElement[i].firstChild);
-    allDurationInputElement[i].firstChild.remove();
-    allDurationInputElement[i].innerHTML = inputValue;
+function hideElementsInputBySelector(selector) {
+  const allSelectorElement = document.querySelectorAll(selector);
+  for (let i = 0; i < allSelectorElement?.length; i++) {
+    const inputValue = allSelectorElement[i].firstChild.value; //  take value of input or select
+    allSelectorElement[i].firstChild.remove(); //  delete node
+    allSelectorElement[i].innerHTML = inputValue; //  paste value of input or select into div
   }
 }
 
-function afterDrawHandler(){
+function afterDrawHandler() {
   console.log("after draw listener");
-  hideElementsInputBySelector(".gduration div");
-  hideElementsInputBySelector(".ggroupitem .gresource div");
-  hideElementsInputBySelector(".gstartdate div, .genddate div");
+  hideElementsInputBySelector(".gduration div"); //  hiding inputs in duration column
+  hideElementsInputBySelector(".ggroupitem .gresource div"); //  hiding inputs in project resource column
+  hideElementsInputBySelector(".gstartdate div, .genddate div"); //  hiding inputs in start and end date columns
 }
 
 setup();
