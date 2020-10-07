@@ -554,7 +554,7 @@ exports.GanttChart = function (pDiv, pFormat) {
                     vTaskWidth = vTaskRightPx;
                     // Draw Group Bar which has outer div with inner group div 
                     // and several small divs to left and right to create angled-end indicators
-                    if (this.vTaskList[i].getGroup()) {
+                    if (this.vTaskList[i].getGroup() === 2) {
                         vTaskWidth = (vTaskWidth > this.vMinGpLen && vTaskWidth < this.vMinGpLen * 2) ? this.vMinGpLen * 2 : vTaskWidth; // Expand to show two end points
                         vTaskWidth = (vTaskWidth < this.vMinGpLen) ? this.vMinGpLen : vTaskWidth; // expand to show one end point
                         vTmpRow_1 = draw_utils_1.newNode(vTmpTBody, 'tr', this.vDivId + 'childrow_' + vID, ((this.vTaskList[i].getGroup() == 2) ? 'glineitem gitem' : 'ggroupitem ggroup') + this.vFormat, null, null, null, ((this.vTaskList[i].getVisible() == 0) ? 'none' : null));

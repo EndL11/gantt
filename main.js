@@ -118,6 +118,7 @@ const setup = async () => {
     vLang: "ua",
     vShowTaskInfoLink: 0, // Show link in tool tip (0/1)
     vShowEndWeekDate: 0, // Show/Hide the date for the last day of the week in header for daily
+    vMinDate: "2020-06-28",
     vAdditionalHeaders: {
       // Add data columns to your table
       status: {
@@ -218,7 +219,7 @@ function afterDrawHandler() {
   console.log("after draw listener");
   hideElementsInputBySelector(".gduration div"); //  hiding inputs in duration column
   hideElementsInputBySelector(".ggroupitem .gresource div"); //  hiding inputs in project resource column
-  hideElementsInputBySelector(".gstartdate div, .genddate div"); //  hiding inputs in start and end date columns
+  hideElementsInputBySelector(".gstartdate div,.genddate div"); //  hiding inputs in start and end date columns
 }
 
 setup();
