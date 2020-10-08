@@ -1,12 +1,10 @@
-const allProperties = {
+const commonProperties = {
   pID: "pk",
   pStart: "start_date",
   pEnd: "finish_date",
   pPlanStart: "planned_start",
   pPlanEnd: "planned_finish",
   status: "exec_status",
-  pRes: "executor",
-  pName: "name",
 };
 
 const urk_lang = {
@@ -84,20 +82,22 @@ const urk_lang = {
 };
 
 const status = {
-  ToDo: "В черзі",
-  InProgress: "Виконується",
-  OnChecking: "На перевірці",
-  Done: "Виконано",
+  IW: "В черзі",
+  IP: "Виконується",
+  OC: "На перевірці",
+  HD: "Виконано",
+  ST: "Надіслано",
+  OH: "Призупинено",
+  CL: "Відмінено",
 };
 
 const setup = async () => {
-  //let resources = await getResponseData("api_resources.json");
   var g = new JSGantt.GanttChart(
     document.getElementById("GanttChartDIV"),
     "day"
   );
 
-  data.forEach((el) => {
+  data.projects.forEach((el) => {
     g.AddTaskItemObject(createTask(el, g));
   });
 
@@ -118,7 +118,6 @@ const setup = async () => {
     vLang: "ua",
     vShowTaskInfoLink: 0, // Show link in tool tip (0/1)
     vShowEndWeekDate: 0, // Show/Hide the date for the last day of the week in header for daily
-    vMinDate: "2020-06-28",
     vAdditionalHeaders: {
       // Add data columns to your table
       status: {
@@ -150,6 +149,7 @@ const setup = async () => {
     vEditable: true,
     vUseSort: true,
     vShowCost: false,
+    vShowRes: data.view_mode == "project_view" ? 1 : 0,
     vShowAddEntries: false,
     vShowComp: false,
     vShowPlanStartDate: true,
@@ -157,6 +157,7 @@ const setup = async () => {
     vUseSingleCell: 25000, // Set the threshold cell per table row (Helps performance for large data.
     vFormatArr: ["Day", "Week", "Month", "Quarter"], // Even with setUseSingleCell using Hour format on such a large chart can cause issues in some browsers,
   });
+  g.setTotalHeight("99vh");
   g.setShowTaskInfoComp(false);
   g.Draw();
   g.setScrollTo("today");
@@ -182,24 +183,28 @@ function createTask(obj, g) {
   //  gets api project info object
   //  returns object for jsgantt chart
   let newObject = {};
-  Object.keys(allProperties).forEach((key) => {
+  const isProject = obj.hasOwnProperty("tasks");
+  Object.keys(commonProperties).forEach((key) => {
     if (key === "status") {
-      newObject[key] = status[obj[allProperties[key]]];       //  take status value for status collection
+      newObject[key] = status[obj[commonProperties[key]]];       //  take status value for status collection
       return;
     }
-    newObject[key] = obj[allProperties[key]];                 //  take dynamic key for object from properties of jsgantt value
+    newObject[key] = unescape(obj[commonProperties[key]]);       //  take dynamic key for object from properties of jsgantt value
   });
   newObject.pClass = `task_${obj.exec_status.toLowerCase()}`; //  set custom class for task
   newObject.pComp = 0;                                        //  % of complete
-  newObject.object_code = obj.hasOwnProperty("tasks") ? obj.object_code : obj.task;
-  newObject.pGroup = obj.hasOwnProperty("tasks") ? 1 : 0;     //  1 for project task, 0 for task
-  newObject.pParent = obj.hasOwnProperty("tasks") ? 0 : "";
+  newObject.pName = isProject ? obj.object_code : obj.part_name;
+  newObject.pRes = isProject ? obj.owner : obj.executor;
+  newObject.object_code = isProject ? obj.object_code : obj.task;
+  newObject.pGroup = isProject ? 1 : 0;     //  1 for project task, 0 for task
+  newObject.pParent = isProject ? 0 : "";
   newObject.pOpen = 1;                                        //  0 for rendering colapsed projects and tasks
   newObject.pNotes = obj.hasOwnProperty("warning") ? obj.warning : "";
-  if (obj.hasOwnProperty("tasks")) {
+  if (isProject) {
     obj.tasks.forEach((task) => {
       const createdObject = createTask(task, g);
       createdObject.pParent = obj.pk;                         //  set parent id from project
+      createdObject.object_code = obj.object_code;  
       g.AddTaskItemObject(createdObject);
     });
   }
