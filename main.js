@@ -91,6 +91,61 @@ const status = {
   CL: "Відмінено",
 };
 
+const ganttSettings = {
+  vResources: resources,
+  vCaptionType: "Resource", // Set to Show Caption : None,Caption,Resource,Duration,Complete,
+  vHourColWidth: 16,
+  vDayColWidth: 32,
+  vWeekColWidth: 64,
+  vMonthColWidth: 128,
+  vQuarterColWidth: 256,
+  vTooltipDelay: 1000,
+  vDateTaskDisplayFormat: "day dd month yyyy", // Shown in tool tip box
+  vDayMajorDateDisplayFormat: "mon yyyy - Week ww", // Set format to dates in the "Major" header of the "Day" view
+  vWeekMinorDateDisplayFormat: "dd mon", // Set format to display dates in the "Minor" header of the "Week" view
+  vLang: "ua",
+  vShowTaskInfoLink: 0, // Show link in tool tip (0/1)
+  vShowEndWeekDate: 0, // Show/Hide the date for the last day of the week in header for daily
+  vAdditionalHeaders: {
+    // Add data columns to your table
+    status: {
+      title: "Статус",
+    },
+    object_code: {
+      title: "Object_code",
+    },
+  },
+  vEvents: {
+    // taskname: console.log,
+    // res: console.log,
+    // start: console.log,
+    // end: console.log,
+    // planstart: console.log,
+    // planend: console.log,
+    beforeDraw: () => console.log("before draw listener"),
+    afterDraw: afterDrawHandler,
+  },
+  vEventsChange: {
+    taskname: editValue, // if you need to use the this scope, do: editValue.bind(this)
+    res: editValue,
+    dur: editValue,
+    start: editValue,
+    end: editValue,
+    planstart: editValue,
+    planend: editValue,
+  },
+  vEditable: true,
+  vUseSort: true,
+  vShowCost: false,
+  vShowRes: data?.view_mode == "project_view" ? 1 : 0,
+  vShowAddEntries: false,
+  vShowComp: false,
+  vShowPlanStartDate: true,
+  vShowPlanEndDate: true,
+  vUseSingleCell: 25000, // Set the threshold cell per table row (Helps performance for large data.
+  vFormatArr: ["Day", "Week", "Month", "Quarter"], // Even with setUseSingleCell using Hour format on such a large chart can cause issues in some browsers,
+};
+
 const setup = async () => {
   var g = new JSGantt.GanttChart(
     document.getElementById("GanttChartDIV"),
@@ -103,60 +158,7 @@ const setup = async () => {
 
   g.addLang("ua", urk_lang);
 
-  g.setOptions({
-    vResources: resources,
-    vCaptionType: "Resource", // Set to Show Caption : None,Caption,Resource,Duration,Complete,
-    vHourColWidth: 16,
-    vDayColWidth: 32,
-    vWeekColWidth: 64,
-    vMonthColWidth: 128,
-    vQuarterColWidth: 256,
-    vTooltipDelay: 1000,
-    vDateTaskDisplayFormat: "day dd month yyyy", // Shown in tool tip box
-    vDayMajorDateDisplayFormat: "mon yyyy - Week ww", // Set format to dates in the "Major" header of the "Day" view
-    vWeekMinorDateDisplayFormat: "dd mon", // Set format to display dates in the "Minor" header of the "Week" view
-    vLang: "ua",
-    vShowTaskInfoLink: 0, // Show link in tool tip (0/1)
-    vShowEndWeekDate: 0, // Show/Hide the date for the last day of the week in header for daily
-    vAdditionalHeaders: {
-      // Add data columns to your table
-      status: {
-        title: "Статус",
-      },
-      object_code: {
-        title: "Object_code",
-      },
-    },
-    vEvents: {
-      // taskname: console.log,
-      // res: console.log,
-      // start: console.log,
-      // end: console.log,
-      // planstart: console.log,
-      // planend: console.log,
-      beforeDraw: () => console.log("before draw listener"),
-      afterDraw: afterDrawHandler,
-    },
-    vEventsChange: {
-      taskname: editValue, // if you need to use the this scope, do: editValue.bind(this)
-      res: editValue,
-      dur: editValue,
-      start: editValue,
-      end: editValue,
-      planstart: editValue,
-      planend: editValue,
-    },
-    vEditable: true,
-    vUseSort: true,
-    vShowCost: false,
-    vShowRes: data.view_mode == "project_view" ? 1 : 0,
-    vShowAddEntries: false,
-    vShowComp: false,
-    vShowPlanStartDate: true,
-    vShowPlanEndDate: true,
-    vUseSingleCell: 25000, // Set the threshold cell per table row (Helps performance for large data.
-    vFormatArr: ["Day", "Week", "Month", "Quarter"], // Even with setUseSingleCell using Hour format on such a large chart can cause issues in some browsers,
-  });
+  g.setOptions(ganttSettings);
   g.setTotalHeight("99vh");
   g.setShowTaskInfoComp(false);
   g.Draw();
@@ -167,7 +169,16 @@ function editValue(list, task, event, cell, column) {
   const pk = task.getOriginalID();
   const apiType = task.getGroup() == 1 ? "project" : "task";
   const newValue = event.target.value.trim().replace(" ", "-");
-  let fieldName = !allProperties[column] ? column : allProperties[column];
+  let fieldName;
+  if(!commonProperties[column]){
+    if(column === "pName" && apiType === "project") fieldName = "object_code";
+    else fieldName = "part_name";
+
+    if(column === "pRes") fieldName = "executor";
+  }
+  else{
+    fieldName =commonProperties[column];
+  }
   const api_request = `/${apiType}/${pk}/?${fieldName}=${newValue}`;
   console.log(api_request);
   //console.log(list, task, event, cell, column);
@@ -186,25 +197,32 @@ function createTask(obj, g) {
   const isProject = obj.hasOwnProperty("tasks");
   Object.keys(commonProperties).forEach((key) => {
     if (key === "status") {
-      newObject[key] = status[obj[commonProperties[key]]];       //  take status value for status collection
+      newObject[key] = status[obj[commonProperties[key]]]; //  take status value for status collection
       return;
     }
-    newObject[key] = unescape(obj[commonProperties[key]]);       //  take dynamic key for object from properties of jsgantt value
+    if(obj.hasOwnProperty(commonProperties[key]) === false){
+      newObject[key] = "null";
+      return;
+    }
+    newObject[key] =
+        obj[commonProperties[key]] === null
+          ? ""
+          : unescape(obj[commonProperties[key]]); //  take dynamic key for object from properties of jsgantt value
   });
   newObject.pClass = `task_${obj.exec_status.toLowerCase()}`; //  set custom class for task
-  newObject.pComp = 0;                                        //  % of complete
+  newObject.pComp = 0; //  % of complete
   newObject.pName = isProject ? obj.object_code : obj.part_name;
   newObject.pRes = isProject ? obj.owner : obj.executor;
   newObject.object_code = isProject ? obj.object_code : obj.task;
-  newObject.pGroup = isProject ? 1 : 0;     //  1 for project task, 0 for task
+  newObject.pGroup = isProject ? 1 : 0; //  1 for project task, 0 for task
   newObject.pParent = isProject ? 0 : "";
-  newObject.pOpen = 1;                                        //  0 for rendering colapsed projects and tasks
+  newObject.pOpen = 1; //  0 for rendering colapsed projects and tasks
   newObject.pNotes = obj.hasOwnProperty("warning") ? obj.warning : "";
   if (isProject) {
     obj.tasks.forEach((task) => {
       const createdObject = createTask(task, g);
-      createdObject.pParent = obj.pk;                         //  set parent id from project
-      createdObject.object_code = obj.object_code;  
+      createdObject.pParent = obj.pk; //  set parent id from project
+      createdObject.object_code = obj.object_code;
       g.AddTaskItemObject(createdObject);
     });
   }
@@ -220,11 +238,21 @@ function hideElementsInputBySelector(selector) {
   }
 }
 
+function addInputElementsBySelector(selector){
+  const allSelectorElement = document.querySelectorAll(selector);
+  for (let i = 0; i < allSelectorElement?.length; i++) {
+    const inputValue = allSelectorElement[i].innerText.trim(); //  take value of input or select
+    const child = `&nbsp;&nbsp;<input class="gantt-inputtable" type="text" value=${inputValue}>`;
+    allSelectorElement[i].innerHTML = child;
+  }
+}
+
 function afterDrawHandler() {
   console.log("after draw listener");
   hideElementsInputBySelector(".gduration div"); //  hiding inputs in duration column
   hideElementsInputBySelector(".ggroupitem .gresource div"); //  hiding inputs in project resource column
   hideElementsInputBySelector(".gstartdate div,.genddate div"); //  hiding inputs in start and end date columns
+  addInputElementsBySelector(".gtaskname.gtaskeditable div span:last-child")
 }
 
 setup();
