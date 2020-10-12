@@ -151,12 +151,11 @@ const setup = async () => {
     document.getElementById("GanttChartDIV"),
     "day"
   );
+  g.addLang("ua", urk_lang);
 
   data.projects.forEach((el) => {
     g.AddTaskItemObject(createTask(el, g));
   });
-
-  g.addLang("ua", urk_lang);
 
   g.setOptions(ganttSettings);
   g.setTotalHeight("99vh");
@@ -166,6 +165,7 @@ const setup = async () => {
 };
 
 function editValue(list, task, event, cell, column) {
+  console.log(event);
   const pk = task.getOriginalID();
   const apiType = task.getGroup() == 1 ? "project" : "task";
   const newValue = event.target.value.trim().replace(" ", "-");

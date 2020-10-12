@@ -276,7 +276,7 @@ exports.GanttChart = function (pDiv, pFormat) {
                             vEventClickRow_1(task_2);
                         }
                     }, vTmpRow_1);
-                    if (this_1.vTaskList[i_1].getGroup() == 1) {
+                    if (this_1.vTaskList[i_1].getGroup() === 2) {
                         vTmpDiv = draw_utils_1.newNode(vTmpCell, 'div', null, null, vCellContents);
                         var vTmpSpan = draw_utils_1.newNode(vTmpDiv, 'span', this_1.vDivId + 'group_' + vID, 'gfoldercollapse', (this_1.vTaskList[i_1].getOpen() == 1) ? '-' : '+');
                         this_1.vTaskList[i_1].setGroupSpan(vTmpSpan);
