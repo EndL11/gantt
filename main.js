@@ -170,14 +170,13 @@ function editValue(list, task, event, cell, column) {
   const apiType = task.getGroup() == 1 ? "project" : "task";
   const newValue = event.target.value.trim().replace(" ", "-");
   let fieldName;
-  if(!commonProperties[column]){
-    if(column === "pName" && apiType === "project") fieldName = "object_code";
+  if (!commonProperties[column]) {
+    if (column === "pName" && apiType === "project") fieldName = "object_code";
     else fieldName = "part_name";
 
-    if(column === "pRes") fieldName = "executor";
-  }
-  else{
-    fieldName =commonProperties[column];
+    if (column === "pRes") fieldName = "executor";
+  } else {
+    fieldName = commonProperties[column];
   }
   const api_request = `/${apiType}/${pk}/?${fieldName}=${newValue}`;
   console.log(api_request);
@@ -193,22 +192,10 @@ function editValue(list, task, event, cell, column) {
 function createTask(obj, g) {
   //  gets api project info object
   //  returns object for jsgantt chart
+
   let newObject = {};
   const isProject = obj.hasOwnProperty("tasks");
-  Object.keys(commonProperties).forEach((key) => {
-    if (key === "status") {
-      newObject[key] = status[obj[commonProperties[key]]]; //  take status value for status collection
-      return;
-    }
-    if(obj.hasOwnProperty(commonProperties[key]) === false){
-      newObject[key] = "null";
-      return;
-    }
-    newObject[key] =
-        obj[commonProperties[key]] === null
-          ? ""
-          : unescape(obj[commonProperties[key]]); //  take dynamic key for object from properties of jsgantt value
-  });
+  newObject = setCommonPropertiesToGanttObject(obj, newObject);
   newObject.pClass = `task_${obj.exec_status.toLowerCase()}`; //  set custom class for task
   newObject.pComp = 0; //  % of complete
   newObject.pName = isProject ? obj.object_code : obj.part_name;
@@ -220,10 +207,10 @@ function createTask(obj, g) {
   newObject.pNotes = obj.hasOwnProperty("warning") ? obj.warning : "";
   if (isProject) {
     obj.tasks.forEach((task) => {
-      const createdObject = createTask(task, g);
-      createdObject.pParent = obj.pk; //  set parent id from project
-      createdObject.object_code = obj.object_code;
-      g.AddTaskItemObject(createdObject);
+      const ganttObj = createTask(task, g);
+      ganttObj.pParent = obj.pk; //  set parent id from project
+      ganttObj.object_code = obj.object_code;
+      g.AddTaskItemObject(ganttObj);
     });
   }
   return newObject;
@@ -238,11 +225,11 @@ function hideElementsInputBySelector(selector) {
   }
 }
 
-function addInputElementsBySelector(selector){
+function addInputElementsBySelector(selector) {
   const allSelectorElement = document.querySelectorAll(selector);
   for (let i = 0; i < allSelectorElement?.length; i++) {
     const inputValue = allSelectorElement[i].innerText.trim(); //  take value of input or select
-    const child = `&nbsp;&nbsp;<input class="gantt-inputtable" type="text" value=${inputValue}>`;
+    const child = `&nbsp;&nbsp;<input class="gantt-inputtable" value="${inputValue}">`;
     allSelectorElement[i].innerHTML = child;
   }
 }
@@ -251,8 +238,24 @@ function afterDrawHandler() {
   console.log("after draw listener");
   hideElementsInputBySelector(".gduration div"); //  hiding inputs in duration column
   hideElementsInputBySelector(".ggroupitem .gresource div"); //  hiding inputs in project resource column
-  hideElementsInputBySelector(".gstartdate div,.genddate div"); //  hiding inputs in start and end date columns
-  addInputElementsBySelector(".gtaskname.gtaskeditable div span:last-child")
+  hideElementsInputBySelector(".gstartdate div, .genddate div"); //  hiding inputs in start and end date columns
+  addInputElementsBySelector(".gtaskname.gtaskeditable div span:last-child");
+}
+
+function setCommonPropertiesToGanttObject(incomeObject, ganntObject){
+  Object.keys(commonProperties).forEach((key) => {
+    const dataProperty = commonProperties[key]; //  incoming data key of each object
+    if (key === "status") {
+      ganntObject[key] = status[incomeObject[dataProperty]]; //  take status value for status collection
+      return;
+    }
+    if (incomeObject.hasOwnProperty(dataProperty) === false) {
+      ganntObject[key] = "null";
+      return;
+    }
+    ganntObject[key] = incomeObject[dataProperty]; //  take dynamic key for object from properties of jsgantt value
+  });
+  return ganntObject;
 }
 
 setup();
