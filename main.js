@@ -106,6 +106,7 @@ const ganttSettings = {
   vLang: "ua",
   vShowTaskInfoLink: 0, // Show link in tool tip (0/1)
   vShowEndWeekDate: 0, // Show/Hide the date for the last day of the week in header for daily
+  vMinDate: new Date("2020-05-10"),
   vAdditionalHeaders: {
     // Add data columns to your table
     status: {
@@ -142,8 +143,8 @@ const ganttSettings = {
   vShowComp: false,
   vShowPlanStartDate: true,
   vShowPlanEndDate: true,
-  vUseSingleCell: 25000, // Set the threshold cell per table row (Helps performance for large data.
-  vFormatArr: ["Day", "Week", "Month", "Quarter"], // Even with setUseSingleCell using Hour format on such a large chart can cause issues in some browsers,
+  //vUseSingleCell: 25000, // Set the threshold cell per table row (Helps performance for large data.
+  vFormatArr: ["Hour", "Day", "Week", "Month", "Quarter"], // Even with setUseSingleCell using Hour format on such a large chart can cause issues in some browsers,
 };
 
 const setup = async () => {
@@ -152,12 +153,12 @@ const setup = async () => {
     "day"
   );
   g.addLang("ua", urk_lang);
+  g.setOptions(ganttSettings);
 
   data.projects.forEach((el) => {
     g.AddTaskItemObject(createTask(el, g));
   });
 
-  g.setOptions(ganttSettings);
   g.setTotalHeight("99vh");
   g.setShowTaskInfoComp(false);
   g.Draw();
@@ -228,10 +229,18 @@ function hideElementsInputBySelector(selector) {
 function addInputElementsBySelector(selector) {
   const allSelectorElement = document.querySelectorAll(selector);
   for (let i = 0; i < allSelectorElement?.length; i++) {
-    const inputValue = allSelectorElement[i].innerText.trim(); //  take value of input or select
-    const child = `&nbsp;&nbsp;<input class="gantt-inputtable" value="${inputValue}">`;
-    allSelectorElement[i].innerHTML = child;
+    allSelectorElement[i].nextSibling.remove();
   }
+}
+
+//  transferring input of project name from separate div to div with collapse
+function changeInputDiv(divClass){
+  const divs = document.querySelectorAll(divClass);
+  divs.forEach(div => {
+    const prevDiv = div.previousSibling;
+    prevDiv.appendChild(div.firstChild);
+    div.remove();
+  })
 }
 
 function afterDrawHandler() {
@@ -239,7 +248,8 @@ function afterDrawHandler() {
   hideElementsInputBySelector(".gduration div"); //  hiding inputs in duration column
   hideElementsInputBySelector(".ggroupitem .gresource div"); //  hiding inputs in project resource column
   hideElementsInputBySelector(".gstartdate div, .genddate div"); //  hiding inputs in start and end date columns
-  addInputElementsBySelector(".gtaskname.gtaskeditable div span:last-child");
+  //addInputElementsBySelector(".gtaskname.gtaskeditable div span.gfoldercollapse");
+  changeInputDiv(".ggroupitem .gtaskname div:last-child");
 }
 
 function setCommonPropertiesToGanttObject(incomeObject, ganntObject){

@@ -276,16 +276,23 @@ exports.GanttChart = function (pDiv, pFormat) {
                             vEventClickRow_1(task_2);
                         }
                     }, vTmpRow_1);
-                    if (this_1.vTaskList[i_1].getGroup() === 2) {
+                    if (this_1.vTaskList[i_1].getGroup() === 1) {
                         vTmpDiv = draw_utils_1.newNode(vTmpCell, 'div', null, null, vCellContents);
                         var vTmpSpan = draw_utils_1.newNode(vTmpDiv, 'span', this_1.vDivId + 'group_' + vID, 'gfoldercollapse', (this_1.vTaskList[i_1].getOpen() == 1) ? '-' : '+');
                         this_1.vTaskList[i_1].setGroupSpan(vTmpSpan);
                         events_1.addFolderListeners(this_1, vTmpSpan, vID);
-                        var divTask = document.createElement('span');
-                        divTask.innerHTML = '\u00A0' + this_1.vTaskList[i_1].getName();
-                        vTmpDiv.appendChild(divTask);
-                        // const text = makeInput(this.vTaskList[i].getName(), this.vEditable, 'text');
-                        // vTmpDiv.appendChild(document.createNode(text));
+                        // var divTask = document.createElement('span');
+                        // divTask.innerHTML = '\u00A0' + this_1.vTaskList[i_1].getName();
+                        // vTmpDiv.appendChild(divTask);
+
+
+                        const text = draw_utils_1.makeInput(this_1.vTaskList[i_1].getName(), true, 'text');
+                        vTmpDiv = draw_utils_1.newNode(vTmpCell, 'div', null, null, vCellContents + text);
+                        // const createdInput = document.createElement("div");
+                        // createdInput.innerHTML = text;
+                        // vTmpDiv.appendChild(createdInput);
+
+
                         var callback = function (task, e) { return task.setName(e.target.value); };
                         events_1.addListenerInputCell(vTmpCell, this_1.vEventsChange, callback, this_1.vTaskList, i_1, 'taskname', this_1.Draw.bind(this_1));
                         events_1.addListenerClickCell(vTmpDiv, this_1.vEvents, this_1.vTaskList[i_1], 'taskname');
