@@ -106,7 +106,6 @@ const ganttSettings = {
   vLang: "ua",
   vShowTaskInfoLink: 0, // Show link in tool tip (0/1)
   vShowEndWeekDate: 0, // Show/Hide the date for the last day of the week in header for daily
-  vMinDate: new Date("2020-05-10"),
   vAdditionalHeaders: {
     // Add data columns to your table
     status: {
@@ -143,8 +142,8 @@ const ganttSettings = {
   vShowComp: false,
   vShowPlanStartDate: true,
   vShowPlanEndDate: true,
-  //vUseSingleCell: 25000, // Set the threshold cell per table row (Helps performance for large data.
-  vFormatArr: ["Hour", "Day", "Week", "Month", "Quarter"], // Even with setUseSingleCell using Hour format on such a large chart can cause issues in some browsers,
+  vUseSingleCell: 25000, // Set the threshold cell per table row (Helps performance for large data.
+  vFormatArr: ["Day", "Week", "Month", "Quarter"], // Even with setUseSingleCell using Hour format on such a large chart can cause issues in some browsers,
 };
 
 const setup = async () => {
@@ -159,10 +158,10 @@ const setup = async () => {
     g.AddTaskItemObject(createTask(el, g));
   });
 
-  g.setTotalHeight("99vh");
+  g.setTotalHeight("94vh");
   g.setShowTaskInfoComp(false);
-  g.Draw();
   g.setScrollTo("today");
+  g.Draw();
 };
 
 function editValue(list, task, event, cell, column) {
@@ -239,7 +238,6 @@ function changeInputDiv(divClass){
   divs.forEach(div => {
     const prevDiv = div.previousSibling;
     prevDiv.appendChild(div.firstChild);
-    div.remove();
   })
 }
 
