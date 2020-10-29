@@ -144,9 +144,10 @@
   max-width: 100%;
 }
 
-.gadditional-status div, .gresource div{
-  line-height: 2;
-}
+/* .gtaskname div, .gtaskname{
+  max-width: 100px;
+  width:100px;
+} */
 
 .ggroupitem .gtaskname div:last-child{
   display: none;

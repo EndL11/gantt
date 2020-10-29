@@ -281,16 +281,15 @@ exports.GanttChart = function (pDiv, pFormat) {
                         var vTmpSpan = draw_utils_1.newNode(vTmpDiv, 'span', this_1.vDivId + 'group_' + vID, 'gfoldercollapse', (this_1.vTaskList[i_1].getOpen() == 1) ? '-' : '+');
                         this_1.vTaskList[i_1].setGroupSpan(vTmpSpan);
                         events_1.addFolderListeners(this_1, vTmpSpan, vID);
-                        // var divTask = document.createElement('span');
-                        // divTask.innerHTML = '\u00A0' + this_1.vTaskList[i_1].getName();
-                        // vTmpDiv.appendChild(divTask);
+                        var divTask = document.createElement('span');
+                        divTask.innerHTML = '\u00A0' + this_1.vTaskList[i_1].getName();
+                        vTmpDiv.appendChild(divTask);
 
-
-                        const text = draw_utils_1.makeInput(this_1.vTaskList[i_1].getName(), true, 'text');
+                        // const text = draw_utils_1.makeInput(this_1.vTaskList[i_1].getName(), true, 'text');
                         vTmpDiv = draw_utils_1.newNode(vTmpCell, 'div', null, null, vCellContents + text);
-                        // const createdInput = document.createElement("div");
-                        // createdInput.innerHTML = text;
-                        // vTmpDiv.appendChild(createdInput);
+                        // // const createdInput = document.createElement("div");
+                        // // createdInput.innerHTML = text;
+                        // // vTmpDiv.appendChild(createdInput);
 
 
                         var callback = function (task, e) { return task.setName(e.target.value); };

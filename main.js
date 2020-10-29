@@ -92,8 +92,7 @@ const status = {
 };
 
 const ganttSettings = {
-  vResources: resources,
-  vCaptionType: "Resource", // Set to Show Caption : None,Caption,Resource,Duration,Complete,
+  vCaptionType: "Caption", // Set to Show Caption : None,Caption,Resource,Duration,Complete,
   vHourColWidth: 16,
   vDayColWidth: 32,
   vWeekColWidth: 64,
@@ -110,10 +109,7 @@ const ganttSettings = {
     // Add data columns to your table
     status: {
       title: "Статус",
-    },
-    object_code: {
-      title: "Object_code",
-    },
+    }
   },
   vEvents: {
     // taskname: console.log,
@@ -126,11 +122,11 @@ const ganttSettings = {
     afterDraw: afterDrawHandler,
   },
   vEventsChange: {
-    taskname: editValue, // if you need to use the this scope, do: editValue.bind(this)
-    res: editValue,
-    dur: editValue,
-    start: editValue,
-    end: editValue,
+    // taskname: editValue, // if you need to use the this scope, do: editValue.bind(this)
+    // res: editValue,
+    // dur: editValue,
+    // start: editValue,
+    // end: editValue,
     planstart: editValue,
     planend: editValue,
   },
@@ -205,11 +201,11 @@ function createTask(obj, g) {
   newObject.pParent = isProject ? 0 : "";
   newObject.pOpen = 1; //  0 for rendering colapsed projects and tasks
   newObject.pNotes = obj.hasOwnProperty("warning") ? obj.warning : "";
+  newObject.pCaption = isProject ? obj.object_code : obj.part_name;
   if (isProject) {
     obj.tasks.forEach((task) => {
       const ganttObj = createTask(task, g);
       ganttObj.pParent = obj.pk; //  set parent id from project
-      ganttObj.object_code = obj.object_code;
       g.AddTaskItemObject(ganttObj);
     });
   }
@@ -225,20 +221,13 @@ function hideElementsInputBySelector(selector) {
   }
 }
 
-function addInputElementsBySelector(selector) {
+function hideInputsFromTaskName(selector){
   const allSelectorElement = document.querySelectorAll(selector);
   for (let i = 0; i < allSelectorElement?.length; i++) {
-    allSelectorElement[i].nextSibling.remove();
+    const inputValue = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + allSelectorElement[i].lastChild.value; //  take value of input or select
+    allSelectorElement[i].lastChild.remove(); //  delete node
+    allSelectorElement[i].innerHTML = inputValue; //  paste value of input or select into div
   }
-}
-
-//  transferring input of project name from separate div to div with collapse
-function changeInputDiv(divClass){
-  const divs = document.querySelectorAll(divClass);
-  divs.forEach(div => {
-    const prevDiv = div.previousSibling;
-    prevDiv.appendChild(div.firstChild);
-  })
 }
 
 function afterDrawHandler() {
@@ -246,8 +235,8 @@ function afterDrawHandler() {
   hideElementsInputBySelector(".gduration div"); //  hiding inputs in duration column
   hideElementsInputBySelector(".ggroupitem .gresource div"); //  hiding inputs in project resource column
   hideElementsInputBySelector(".gstartdate div, .genddate div"); //  hiding inputs in start and end date columns
-  //addInputElementsBySelector(".gtaskname.gtaskeditable div span.gfoldercollapse");
-  changeInputDiv(".ggroupitem .gtaskname div:last-child");
+  hideElementsInputBySelector(".glineitem .gresource div"); //  hiding inputs in resource column
+  hideInputsFromTaskName(".glineitem .gtaskname div");
 }
 
 function setCommonPropertiesToGanttObject(incomeObject, ganntObject){
