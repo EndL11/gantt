@@ -138,7 +138,7 @@ const ganttSettings = {
   vShowComp: false,
   vShowPlanStartDate: true,
   vShowPlanEndDate: true,
-  vUseSingleCell: 25000, // Set the threshold cell per table row (Helps performance for large data.
+  vUseSingleCell: 55000, // Set the threshold cell per table row (Helps performance for large data.
   vFormatArr: ["Day", "Week", "Month", "Quarter"], // Even with setUseSingleCell using Hour format on such a large chart can cause issues in some browsers,
 };
 
@@ -253,6 +253,16 @@ function setCommonPropertiesToGanttObject(incomeObject, ganntObject){
     }
     ganntObject[key] = incomeObject[dataProperty]; //  take dynamic key for object from properties of jsgantt value
   });
+
+  if(incomeObject.start_date === null){
+    ganntObject.pEnd = null;
+  }
+  if(incomeObject.finish_date === null && incomeObject.start_date !== null){
+    ganntObject.pEnd = incomeObject.planned_finish;
+  }
+  if(incomeObject.start_date === null){
+    ganntObject.pPlanStart = new Date();
+  }
   return ganntObject;
 }
 
