@@ -144,8 +144,9 @@
   max-width: 100%;
 }
 
-.ggroupitem .gtaskname div:last-child{
-  display: none;
+.edit_project_link{
+  text-decoration: none;
+  float: right;
 }
 
 /* status agenda */

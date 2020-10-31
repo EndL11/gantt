@@ -138,7 +138,7 @@ const ganttSettings = {
   vShowComp: false,
   vShowPlanStartDate: true,
   vShowPlanEndDate: true,
-  vUseSingleCell: 55000, // Set the threshold cell per table row (Helps performance for large data.
+  vUseSingleCell: 35000, // Set the threshold cell per table row (Helps performance for large data.
   vFormatArr: ["Day", "Week", "Month", "Quarter"], // Even with setUseSingleCell using Hour format on such a large chart can cause issues in some browsers,
 };
 
@@ -238,6 +238,7 @@ function afterDrawHandler() {
   hideElementsInputBySelector(".glineitem .gresource div"); //  hiding inputs in resource column
   hideInputsFromTaskName(".glineitem .gtaskname div");
   swapStatusDuringColumns();
+  addingEditProjectLink(".ggroupitem .gtaskname div:first-child");
 }
 
 function setCommonPropertiesToGanttObject(incomeObject, ganntObject){
@@ -277,6 +278,19 @@ function swapStatusDuringColumns(){
     prevToStatus.after(allDuringCells[i]);
     nextToDuring.before(allStatusCells[i]);
   }
+}
+
+function addingEditProjectLink(selector, g){
+  const items = document.querySelectorAll(selector);
+  items.forEach(item => {
+    const wrapper = document.createElement("a");
+    const pk = data.projects.find(row => row.object_code === item.textContent.slice(1).trim()).pk;
+    wrapper.classList.add("edit_project_link");
+    wrapper.setAttribute("target", "_blank");
+    wrapper.setAttribute("href", `/project/${pk}/change`);
+    wrapper.innerText = "Ред.";
+    item.appendChild(wrapper);
+  });
 }
 
 setup();
