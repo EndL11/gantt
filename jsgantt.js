@@ -511,7 +511,7 @@ exports.GanttChart = function (pDiv, pFormat) {
                 vTaskLeftPx = general_utils_1.getOffset(vMinDate, curTaskStart, vColWidth, this.vFormat, this.vShowWeekends);
                 vTaskRightPx = general_utils_1.getOffset(curTaskStart, curTaskEnd, vColWidth, this.vFormat, this.vShowWeekends);
                 //  make longer task view actual date    
-                if(vTaskLeftPx <= 1) vTaskLeftPx = 25;
+                //if(vTaskLeftPx <= 1) vTaskLeftPx = 25;
                 if(vTaskRightPx <= 1) vTaskRightPx = 25;
 
                 var curTaskPlanStart = void 0, curTaskPlanEnd = void 0;
@@ -522,9 +522,8 @@ exports.GanttChart = function (pDiv, pFormat) {
                     vTaskPlanRightPx = general_utils_1.getOffset(curTaskPlanStart, curTaskPlanEnd, vColWidth, this.vFormat, this.vShowWeekends);
 
                     //  make longer task view plan date    
-                    if(vTaskPlanLeftPx <= 1) vTaskPlanLeftPx = 0;
                     if(vTaskPlanRightPx <= 1) vTaskPlanRightPx = 24;
-                    
+
                 }
                 else {
                     vTaskPlanLeftPx = vTaskPlanRightPx = 0;
