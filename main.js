@@ -237,6 +237,7 @@ function afterDrawHandler() {
   hideElementsInputBySelector(".gstartdate div, .genddate div"); //  hiding inputs in start and end date columns
   hideElementsInputBySelector(".glineitem .gresource div"); //  hiding inputs in resource column
   hideInputsFromTaskName(".glineitem .gtaskname div");
+  swapStatusDuringColumns();
 }
 
 function setCommonPropertiesToGanttObject(incomeObject, ganntObject){
@@ -253,6 +254,19 @@ function setCommonPropertiesToGanttObject(incomeObject, ganntObject){
     ganntObject[key] = incomeObject[dataProperty]; //  take dynamic key for object from properties of jsgantt value
   });
   return ganntObject;
+}
+
+function swapStatusDuringColumns(){
+  const duringColumnSelector = ".gduration";
+  const statusColumnSelector = ".gadditional.gadditional-status";
+  const allStatusCells = document.querySelectorAll(statusColumnSelector);
+  const allDuringCells = document.querySelectorAll(duringColumnSelector);
+  for(let i = 0; i < allDuringCells.length; i++){
+    const nextToDuring = allDuringCells[i].nextSibling;
+    const prevToStatus = allStatusCells[i].previousSibling;
+    prevToStatus.after(allDuringCells[i]);
+    nextToDuring.before(allStatusCells[i]);
+  }
 }
 
 setup();
