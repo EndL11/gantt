@@ -280,7 +280,7 @@ function swapStatusDuringColumns(){
   }
 }
 
-function addingEditProjectLink(selector, g){
+function addingEditProjectLink(selector){
   const items = document.querySelectorAll(selector);
   items.forEach(item => {
     const wrapper = document.createElement("a");
