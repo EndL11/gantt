@@ -149,6 +149,10 @@
   float: right;
 }
 
+.gmainright{
+  height: 94vh;
+}
+
 /* status agenda */
 
 .agenda_wrapper{
