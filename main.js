@@ -160,6 +160,21 @@ const setup = async () => {
   g.Draw();
 };
 
+function getCookie(name) {
+  if (!document.cookie) {
+    return null;
+  }
+
+  const xsrfCookies = document.cookie.split(';')
+    .map(c => c.trim())
+    .filter(c => c.startsWith(name + '='));
+
+  if (xsrfCookies.length === 0) {
+    return null;
+  }
+  return decodeURIComponent(xsrfCookies[0].split('=')[1]);
+}
+
 function editValue(list, task, event, cell, column) {
   console.log(event);
   const pk = task.getOriginalID();
@@ -168,11 +183,13 @@ function editValue(list, task, event, cell, column) {
   let fieldName = (column === "pPlanStart") ? "planned_start" : "planned_finish";
   const editObject = {pk, [fieldName]: newValue, task_type: apiType}
   console.log(editObject);
+  const csrfToken = getCookie('CSRF-TOKEN');
   fetch("change/", {
     method: 'POST', // или 'PUT'
     body: JSON.stringify(editObject), // данные могут быть 'строкой' или {объектом}!
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'X-CSRF-TOKEN': csrfToken
     }
   })
   const found = list.find((item) => item.pID == task.getOriginalID());
@@ -194,7 +211,6 @@ function createTask(obj, g) {
   newObject.pComp = 0; //  % of complete
   newObject.pName = isProject ? obj.object_code : obj.part_name;
   newObject.pRes = isProject ? obj.owner : obj.executor;
-  newObject.object_code = isProject ? obj.object_code : obj.task;
   newObject.pGroup = isProject ? 1 : 0; //  1 for project task, 0 for task
   newObject.pParent = isProject ? 0 : "";
   newObject.pOpen = 1; //  0 for rendering colapsed projects and tasks
@@ -203,9 +219,12 @@ function createTask(obj, g) {
     obj.tasks.forEach((task) => {
       const ganttObj = createTask(task, g);
       ganttObj.pParent = obj.pk; //  set parent id from project
+      console.log("Task:", ganttObj);
       g.AddTaskItemObject(ganttObj);
     });
   }
+  console.log("Project:", newObject);
+
   return newObject;
 }
 

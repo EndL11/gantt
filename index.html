@@ -141,16 +141,1512 @@
       //   },
       // ];
 
+      // const data = {
+      //   view_mode: "project_view",
+      //   start_date: "2020-11-02",
+      //   end_date: "2020-11-06",
+      //   projects: [
+      //     {
+      //       pk: 8455,
+      //       object_code: "LVI NRS TYA",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IW",
+      //       planned_start: "2020-10-30",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25017,
+      //           executor:
+      //             "\u041c\u0430\u043b\u0430\u0448\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //           part_name: "\u0421\u0445\u0435\u043c\u0430",
+      //           exec_status: "IW",
+      //           planned_start: "None",
+      //           planned_finish: "2020-10-21",
+      //           start_date: "None",
+      //           finish_date: "None",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8327,
+      //       object_code: "UL2892",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-08-17",
+      //       planned_finish: "2020-09-30",
+      //       tasks: [
+      //         {
+      //           pk: 25001,
+      //           executor:
+      //             "\u041c\u0430\u0440\u0430\u0445\u043e\u0432\u0441\u044c\u043a\u0430 \u0412\u0456\u0440\u0430",
+      //           part_name: "\u041f\u0417, \u0413\u041f",
+      //           exec_status: "OC",
+      //           planned_start: "None",
+      //           planned_finish: "2020-10-23",
+      //           start_date: "2020-10-20",
+      //           finish_date: "2020-10-22",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8203,
+      //       object_code: "UL0830 \u0431\u043e\u0440\u0433",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "ST",
+      //       planned_start: "2020-07-08",
+      //       planned_finish: "2020-08-03",
+      //       tasks: [
+      //         {
+      //           pk: 25264,
+      //           executor:
+      //             "\u0410\u0440\u0433\u0443\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //           part_name: "\u0417\u0432\u0456\u0442",
+      //           exec_status: "HD",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-03",
+      //           start_date: "2020-11-03",
+      //           finish_date: "2020-11-03",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8334,
+      //       object_code: "UT1917",
+      //       owner:
+      //         "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-08-19",
+      //       planned_finish: "2020-09-30",
+      //       tasks: [
+      //         {
+      //           pk: 25282,
+      //           executor:
+      //             "\u041b\u0435\u0432\u0447\u0435\u043d\u043a\u043e \u042f\u0440\u043e\u0441\u043b\u0430\u0432",
+      //           part_name: "\u0437\u0432\u0456\u0442",
+      //           exec_status: "IP",
+      //           planned_start: "2020-11-05",
+      //           planned_finish: "2020-11-09",
+      //           start_date: "2020-11-06",
+      //           finish_date: "None",
+      //         },
+      //         {
+      //           pk: 25283,
+      //           executor:
+      //             "\u0410\u0443\u0442\u0441\u043e\u0440\u0441\u0438\u043d\u0433 \u0406\u0442\u0435\u043b",
+      //           part_name: "\u0440\u0430\u0441\u0447\u0435\u0442",
+      //           exec_status: "IW",
+      //           planned_start: "2020-11-05",
+      //           planned_finish: "2020-11-09",
+      //           start_date: "None",
+      //           finish_date: "None",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8465,
+      //       object_code: "UV0835",
+      //       owner:
+      //         "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-09-25",
+      //       planned_finish: "2020-10-30",
+      //       tasks: [
+      //         {
+      //           pk: 25127,
+      //           executor:
+      //             "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
+      //           part_name: "\u043e\u0432\u043d\u0441",
+      //           exec_status: "IP",
+      //           planned_start: "2020-11-02",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "2020-11-05",
+      //           finish_date: "None",
+      //         },
+      //         {
+      //           pk: 25128,
+      //           executor:
+      //             "\u0425\u043e\u043b\u043e\u0434 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
+      //           part_name: "\u0440\u043f",
+      //           exec_status: "IP",
+      //           planned_start: "2020-11-02",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "2020-10-27",
+      //           finish_date: "None",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8467,
+      //       object_code: "UL3741",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "HD",
+      //       planned_start: "2020-09-27",
+      //       planned_finish: "2020-10-30",
+      //       tasks: [
+      //         {
+      //           pk: 25271,
+      //           executor:
+      //             "\u041c\u0430\u043b\u0430\u0448\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //           part_name:
+      //             "\u043a\u043e\u0440\u0438\u0433\u0443\u0432\u0430\u043d\u043d\u044f",
+      //           exec_status: "HD",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-04",
+      //           start_date: "2020-11-03",
+      //           finish_date: "2020-11-03",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8340,
+      //       object_code: "UF2907",
+      //       owner:
+      //         "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-08-21",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25229,
+      //           executor:
+      //             "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
+      //           part_name: "\u041e\u0412\u041d\u0421",
+      //           exec_status: "IW",
+      //           planned_start: "2020-11-02",
+      //           planned_finish: "2020-11-05",
+      //           start_date: "None",
+      //           finish_date: "None",
+      //         },
+      //         {
+      //           pk: 25228,
+      //           executor:
+      //             "\u0421\u0430\u0447\u0443\u043a \u0421\u0432\u044f\u0442\u043e\u0441\u043b\u0430\u0432",
+      //           part_name: "\u0440\u043f",
+      //           exec_status: "IP",
+      //           planned_start: "2020-11-03",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "2020-11-03",
+      //           finish_date: "None",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8341,
+      //       object_code: "UF2907",
+      //       owner:
+      //         "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-08-21",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25248,
+      //           executor:
+      //             "\u041b\u0435\u0432\u0447\u0435\u043d\u043a\u043e \u042f\u0440\u043e\u0441\u043b\u0430\u0432",
+      //           part_name: "\u0437\u0432\u0456\u0442",
+      //           exec_status: "OC",
+      //           planned_start: "2020-11-04",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "2020-11-02",
+      //           finish_date: "2020-11-05",
+      //         },
+      //         {
+      //           pk: 25249,
+      //           executor:
+      //             "\u0410\u0443\u0442\u0441\u043e\u0440\u0441\u0438\u043d\u0433 \u0406\u0442\u0435\u043b",
+      //           part_name: "\u0440\u0430\u0441\u0447\u0435\u0442",
+      //           exec_status: "IW",
+      //           planned_start: "2020-11-04",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "None",
+      //           finish_date: "None",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8212,
+      //       object_code: "UL4945",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "ST",
+      //       planned_start: "2020-07-09",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25163,
+      //           executor:
+      //             "\u041c\u0430\u043b\u0430\u0448\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //           part_name: "\u041f\u0417, \u0413\u041f",
+      //           exec_status: "HD",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-03",
+      //           start_date: "2020-11-03",
+      //           finish_date: "2020-11-03",
+      //         },
+      //         {
+      //           pk: 25164,
+      //           executor:
+      //             "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
+      //           part_name: "\u0422\u0425, \u041e\u0412\u041d\u0421",
+      //           exec_status: "HD",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-03",
+      //           start_date: "2020-10-28",
+      //           finish_date: "2020-11-03",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8480,
+      //       object_code: "LK1062",
+      //       owner:
+      //         "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-10-02",
+      //       planned_finish: "2020-10-20",
+      //       tasks: [
+      //         {
+      //           pk: 25226,
+      //           executor:
+      //             "\u0410\u0443\u0442\u0441\u043e\u0440\u0441\u0438\u043d\u0433 \u0406\u0442\u0435\u043b",
+      //           part_name:
+      //             "\u043a\u043e\u0440\u0438\u0433\u0443\u0432\u0430\u043d\u043d\u044f \u0440\u043f",
+      //           exec_status: "HD",
+      //           planned_start: "2020-11-02",
+      //           planned_finish: "2020-11-02",
+      //           start_date: "2020-11-02",
+      //           finish_date: "2020-11-02",
+      //         },
+      //         {
+      //           pk: 25215,
+      //           executor:
+      //             "\u041b\u0435\u0432\u0447\u0435\u043d\u043a\u043e \u042f\u0440\u043e\u0441\u043b\u0430\u0432",
+      //           part_name:
+      //             "\u043a\u043e\u0440\u0438\u0433\u0443\u0432\u0430\u043d\u043d\u044f \u0437\u0432\u0456\u0442\u0443",
+      //           exec_status: "OC",
+      //           planned_start: "2020-10-30",
+      //           planned_finish: "2020-11-03",
+      //           start_date: "2020-10-30",
+      //           finish_date: "2020-11-02",
+      //         },
+      //         {
+      //           pk: 25227,
+      //           executor:
+      //             "\u0410\u0443\u0442\u0441\u043e\u0440\u0441\u0438\u043d\u0433 \u0406\u0442\u0435\u043b",
+      //           part_name: "\u0440\u0430\u0441\u0447\u0435\u0442",
+      //           exec_status: "HD",
+      //           planned_start: "2020-11-02",
+      //           planned_finish: "2020-11-03",
+      //           start_date: "2020-11-02",
+      //           finish_date: "2020-11-02",
+      //         },
+      //         {
+      //           pk: 25250,
+      //           executor:
+      //             "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
+      //           part_name: "\u043e\u0432\u043d\u0441",
+      //           exec_status: "OC",
+      //           planned_start: "2020-11-02",
+      //           planned_finish: "2020-11-04",
+      //           start_date: "2020-11-02",
+      //           finish_date: "2020-11-02",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8352,
+      //       object_code: "UL0830-2 \u0431\u043e\u0440\u0433",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-10-20",
+      //       planned_finish: "2020-09-08",
+      //       tasks: [
+      //         {
+      //           pk: 25185,
+      //           executor:
+      //             "\u0410\u0440\u0433\u0443\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //           part_name: "\u0417\u0432\u0456\u0442",
+      //           exec_status: "OC",
+      //           planned_start: "None",
+      //           planned_finish: "2020-10-30",
+      //           start_date: "2020-10-28",
+      //           finish_date: "2020-11-02",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8485,
+      //       object_code: "UF1519",
+      //       owner:
+      //         "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-10-05",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25247,
+      //           executor:
+      //             "\u0414\u0437\u044e\u0440\u0430 \u0410\u043d\u0434\u0440\u0456\u0439",
+      //           part_name: "\u0441\u0445\u0435\u043c\u0430",
+      //           exec_status: "HD",
+      //           planned_start: "2020-11-04",
+      //           planned_finish: "2020-11-05",
+      //           start_date: "2020-11-04",
+      //           finish_date: "2020-11-05",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8236,
+      //       object_code: "UL4881",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-10-26",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25182,
+      //           executor:
+      //             "\u0422\u0435\u0441\u043b\u044e\u043a \u041e\u043b\u0435\u0433",
+      //           part_name: "\u0410\u0411+\u0415\u0422\u0420",
+      //           exec_status: "HD",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-03",
+      //           start_date: "2020-11-03",
+      //           finish_date: "2020-11-03",
+      //         },
+      //         {
+      //           pk: 25183,
+      //           executor:
+      //             "\u0422\u0435\u0441\u043b\u044e\u043a \u041e\u043b\u0435\u0433",
+      //           part_name: "\u041f\u0417, \u0413\u041f",
+      //           exec_status: "OC",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "2020-11-05",
+      //           finish_date: "2020-11-05",
+      //         },
+      //         {
+      //           pk: 25184,
+      //           executor:
+      //             "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
+      //           part_name: "\u0422\u0425, \u041e\u0412\u041d\u0421",
+      //           exec_status: "IW",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "None",
+      //           finish_date: "None",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8506,
+      //       object_code: "LVI TYA TRB",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-10-26",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25088,
+      //           executor:
+      //             "\u041c\u0430\u043b\u0430\u0448\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //           part_name:
+      //             "\u041f\u0417, \u0413\u041f, \u0410\u0411, \u0415\u0422\u0420",
+      //           exec_status: "IP",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "2020-11-04",
+      //           finish_date: "None",
+      //         },
+      //         {
+      //           pk: 25089,
+      //           executor:
+      //             "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
+      //           part_name: "\u0422\u0425, \u041e\u0412\u041d\u0421",
+      //           exec_status: "IW",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "None",
+      //           finish_date: "None",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8507,
+      //       object_code: "LVI TYA TRB",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IW",
+      //       planned_start: "2020-10-26",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25030,
+      //           executor:
+      //             "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //           part_name: "\u0417\u0432\u0456\u0442",
+      //           exec_status: "IW",
+      //           planned_start: "None",
+      //           planned_finish: "2020-10-23",
+      //           start_date: "None",
+      //           finish_date: "None",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8379,
+      //       object_code: "UL4867",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-08-31",
+      //       planned_finish: "2020-09-30",
+      //       tasks: [
+      //         {
+      //           pk: 25118,
+      //           executor:
+      //             "\u041c\u0430\u0440\u0430\u0445\u043e\u0432\u0441\u044c\u043a\u0430 \u0412\u0456\u0440\u0430",
+      //           part_name: "\u0441\u0445\u0435\u043c\u0430",
+      //           exec_status: "HD",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "2020-10-23",
+      //           finish_date: "2020-11-03",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8512,
+      //       object_code: "LVI RSP TOW",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IW",
+      //       planned_start: "2020-10-26",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25035,
+      //           executor:
+      //             "\u041c\u0430\u043b\u0430\u0448\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //           part_name: "\u0421\u0445\u0435\u043c\u0430",
+      //           exec_status: "IW",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "None",
+      //           finish_date: "None",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8518,
+      //       object_code: "UU0947",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IW",
+      //       planned_start: "2020-11-02",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25272,
+      //           executor:
+      //             "\u0410\u0440\u0433\u0443\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //           part_name: "\u0412\u0438\u0457\u0437\u0434",
+      //           exec_status: "IW",
+      //           planned_start: "2020-11-06",
+      //           planned_finish: "None",
+      //           start_date: "None",
+      //           finish_date: "None",
+      //         },
+      //         {
+      //           pk: 25273,
+      //           executor:
+      //             "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //           part_name: "\u0412\u0438\u0457\u0437\u0434",
+      //           exec_status: "IW",
+      //           planned_start: "2020-11-06",
+      //           planned_finish: "None",
+      //           start_date: "None",
+      //           finish_date: "None",
+      //         },
+      //         {
+      //           pk: 25274,
+      //           executor:
+      //             "\u041c\u0430\u043b\u0430\u0448\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //           part_name: "\u0410\u0411",
+      //           exec_status: "IW",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "None",
+      //           finish_date: "None",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8136,
+      //       object_code: "UL0936",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "ST",
+      //       planned_start: "2020-06-18",
+      //       planned_finish: "2020-08-31",
+      //       tasks: [
+      //         {
+      //           pk: 25262,
+      //           executor:
+      //             "\u0410\u0440\u0433\u0443\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //           part_name: "\u0417\u0432\u0456\u0442",
+      //           exec_status: "HD",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-03",
+      //           start_date: "2020-11-03",
+      //           finish_date: "2020-11-03",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8520,
+      //       object_code: "UU0669",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-10-16",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25189,
+      //           executor:
+      //             "\u041c\u0430\u043b\u0430\u0448\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //           part_name: "\u0410\u0431",
+      //           exec_status: "HD",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-03",
+      //           start_date: "2020-11-03",
+      //           finish_date: "2020-11-03",
+      //         },
+      //         {
+      //           pk: 25191,
+      //           executor:
+      //             "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
+      //           part_name: "\u041e\u0412\u041d\u0421",
+      //           exec_status: "IW",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-04",
+      //           start_date: "None",
+      //           finish_date: "None",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8138,
+      //       object_code: "UL0913",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "HD",
+      //       planned_start: "2020-06-18",
+      //       planned_finish: "2020-08-31",
+      //       tasks: [
+      //         {
+      //           pk: 25251,
+      //           executor:
+      //             "\u041b\u0430\u0437\u0430\u0440\u0454\u0432 \u0410\u043d\u0434\u0440\u0456\u0439",
+      //           part_name:
+      //             "\u0432\u0438\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u043d\u044f",
+      //           exec_status: "HD",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-05",
+      //           start_date: "2020-11-02",
+      //           finish_date: "2020-11-02",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8522,
+      //       object_code: "UL2730",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-10-19",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25221,
+      //           executor:
+      //             "\u0422\u0435\u0441\u043b\u044e\u043a \u041e\u043b\u0435\u0433",
+      //           part_name: "\u0436\u0438\u0432\u043b\u0435\u043d\u043d\u044f",
+      //           exec_status: "OC",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-03",
+      //           start_date: "2020-11-03",
+      //           finish_date: "2020-11-03",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8395,
+      //       object_code: "UL3817",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-10-26",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25175,
+      //           executor:
+      //             "\u041b\u0430\u0437\u0430\u0440\u0454\u0432 \u0410\u043d\u0434\u0440\u0456\u0439",
+      //           part_name: "\u041f\u0417,\u0410\u0411,\u0415\u0422\u0420",
+      //           exec_status: "HD",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-04",
+      //           start_date: "2020-11-02",
+      //           finish_date: "2020-11-04",
+      //         },
+      //         {
+      //           pk: 25176,
+      //           executor:
+      //             "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
+      //           part_name: "\u0422\u0425, \u041e\u0412\u041d\u0421",
+      //           exec_status: "IW",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-04",
+      //           start_date: "None",
+      //           finish_date: "None",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8533,
+      //       object_code: "UL3611",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-10-22",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25199,
+      //           executor:
+      //             "\u041c\u0430\u0440\u0430\u0445\u043e\u0432\u0441\u044c\u043a\u0430 \u0412\u0456\u0440\u0430",
+      //           part_name:
+      //             "\u041f\u0417, \u0410\u0411, \u0415\u0422\u0420, \u0422\u0425",
+      //           exec_status: "HD",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-03",
+      //           start_date: "2020-10-29",
+      //           finish_date: "2020-10-30",
+      //         },
+      //         {
+      //           pk: 25200,
+      //           executor:
+      //             "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
+      //           part_name: "\u041e\u0412\u041d\u0421",
+      //           exec_status: "OC",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-03",
+      //           start_date: "2020-11-04",
+      //           finish_date: "2020-11-04",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8534,
+      //       object_code: "UL2835",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-10-22",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25193,
+      //           executor:
+      //             "\u041c\u0430\u0440\u0430\u0445\u043e\u0432\u0441\u044c\u043a\u0430 \u0412\u0456\u0440\u0430",
+      //           part_name:
+      //             "\u041f\u0417, \u0410\u0411, \u0415\u0422\u0420, \u0422\u0425",
+      //           exec_status: "HD",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-02",
+      //           start_date: "2020-10-29",
+      //           finish_date: "2020-10-29",
+      //         },
+      //         {
+      //           pk: 25194,
+      //           executor:
+      //             "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
+      //           part_name: "\u041e\u0412\u041d\u0421",
+      //           exec_status: "OC",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-02",
+      //           start_date: "2020-11-02",
+      //           finish_date: "2020-11-04",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8535,
+      //       object_code: "UL3708",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-10-22",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25197,
+      //           executor:
+      //             "\u041c\u0430\u043b\u0430\u0448\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //           part_name:
+      //             "\u041f\u0417,\u0410\u0411,\u0415\u0422\u0420, \u0422\u0425",
+      //           exec_status: "HD",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-02",
+      //           start_date: "2020-11-02",
+      //           finish_date: "2020-11-02",
+      //         },
+      //         {
+      //           pk: 25198,
+      //           executor:
+      //             "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
+      //           part_name: "\u041e\u0412\u041d\u0421",
+      //           exec_status: "OC",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-04",
+      //           start_date: "2020-11-04",
+      //           finish_date: "2020-11-05",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8536,
+      //       object_code: "UL3944",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "HD",
+      //       planned_start: "2020-10-22",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25195,
+      //           executor:
+      //             "\u041c\u0430\u043b\u0430\u0448\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //           part_name:
+      //             "\u041f\u0417,\u0410\u0411, \u0415\u0422\u0420, \u0422\u0425",
+      //           exec_status: "HD",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-02",
+      //           start_date: "2020-11-02",
+      //           finish_date: "2020-11-02",
+      //         },
+      //         {
+      //           pk: 25196,
+      //           executor:
+      //             "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
+      //           part_name: "\u041e\u0412\u041d\u0421",
+      //           exec_status: "HD",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-04",
+      //           start_date: "2020-11-02",
+      //           finish_date: "2020-11-02",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8023,
+      //       object_code: "UL4915",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-05-04",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25232,
+      //           executor:
+      //             "\u041c\u0430\u0440\u0430\u0445\u043e\u0432\u0441\u044c\u043a\u0430 \u0412\u0456\u0440\u0430",
+      //           part_name: "\u0421\u0445\u0435\u043c\u0430",
+      //           exec_status: "HD",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-03",
+      //           start_date: "2020-11-02",
+      //           finish_date: "2020-11-03",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8543,
+      //       object_code: "UT0663",
+      //       owner:
+      //         "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-11-04",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25148,
+      //           executor:
+      //             "\u041b\u0435\u0432\u0447\u0435\u043d\u043a\u043e \u042f\u0440\u043e\u0441\u043b\u0430\u0432",
+      //           part_name: "\u0432\u0438\u0457\u0437\u0434",
+      //           exec_status: "HD",
+      //           planned_start: "2020-11-04",
+      //           planned_finish: "2020-11-04",
+      //           start_date: "2020-11-04",
+      //           finish_date: "2020-11-04",
+      //         },
+      //         {
+      //           pk: 25149,
+      //           executor:
+      //             "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
+      //           part_name: "\u0432\u0438\u0457\u0437\u0434",
+      //           exec_status: "HD",
+      //           planned_start: "2020-11-04",
+      //           planned_finish: "2020-11-04",
+      //           start_date: "2020-11-04",
+      //           finish_date: "2020-11-04",
+      //         },
+      //         {
+      //           pk: 25284,
+      //           executor:
+      //             "\u0414\u0437\u044e\u0440\u0430 \u0410\u043d\u0434\u0440\u0456\u0439",
+      //           part_name: "\u0441\u0445\u0435\u043c\u0430",
+      //           exec_status: "IP",
+      //           planned_start: "2020-11-06",
+      //           planned_finish: "2020-11-09",
+      //           start_date: "2020-11-06",
+      //           finish_date: "None",
+      //         },
+      //         {
+      //           pk: 25285,
+      //           executor:
+      //             "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
+      //           part_name: "\u043e\u0432\u043d\u0441",
+      //           exec_status: "HD",
+      //           planned_start: "2020-11-06",
+      //           planned_finish: "2020-11-13",
+      //           start_date: "2020-11-06",
+      //           finish_date: "2020-11-06",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8544,
+      //       object_code: "UT0632",
+      //       owner:
+      //         "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
+      //       exec_status: "IW",
+      //       planned_start: "2020-10-26",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25146,
+      //           executor:
+      //             "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
+      //           part_name: "\u0432\u0438\u0457\u0437\u0434",
+      //           exec_status: "HD",
+      //           planned_start: "2020-11-04",
+      //           planned_finish: "2020-11-04",
+      //           start_date: "2020-11-04",
+      //           finish_date: "2020-11-04",
+      //         },
+      //         {
+      //           pk: 25147,
+      //           executor:
+      //             "\u041b\u0435\u0432\u0447\u0435\u043d\u043a\u043e \u042f\u0440\u043e\u0441\u043b\u0430\u0432",
+      //           part_name: "\u0432\u0438\u0457\u0437\u0434",
+      //           exec_status: "HD",
+      //           planned_start: "2020-11-04",
+      //           planned_finish: "2020-11-04",
+      //           start_date: "2020-11-04",
+      //           finish_date: "2020-11-04",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8547,
+      //       object_code: "UL3817",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "HD",
+      //       planned_start: "2020-10-27",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25170,
+      //           executor:
+      //             "\u041b\u0430\u0437\u0430\u0440\u0454\u0432 \u0410\u043d\u0434\u0440\u0456\u0439",
+      //           part_name: "\u043f\u0440\u0438\u0432\u044f\u0437\u043a\u0430",
+      //           exec_status: "HD",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-02",
+      //           start_date: "2020-10-28",
+      //           finish_date: "2020-11-02",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8420,
+      //       object_code: "UL2930",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-10-26",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25155,
+      //           executor:
+      //             "\u0422\u0435\u0441\u043b\u044e\u043a \u041e\u043b\u0435\u0433",
+      //           part_name: "\u0421\u0445\u0435\u043c\u0430",
+      //           exec_status: "OC",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "2020-11-04",
+      //           finish_date: "2020-11-05",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8548,
+      //       object_code: "UL3817",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-10-27",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25173,
+      //           executor:
+      //             "\u041b\u0430\u0437\u0430\u0440\u0454\u0432 \u0410\u043d\u0434\u0440\u0456\u0439",
+      //           part_name: "\u0417\u0432\u0456\u0442",
+      //           exec_status: "IP",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "2020-11-06",
+      //           finish_date: "None",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8422,
+      //       object_code: "LVI SOL GRP",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u043a\u043e \u0412\u0456\u043a\u0442\u043e\u0440",
+      //       exec_status: "IP",
+      //       planned_start: "2020-09-16",
+      //       planned_finish: "2020-10-31",
+      //       tasks: [
+      //         {
+      //           pk: 25281,
+      //           executor:
+      //             "\u0410\u0443\u0442\u0441\u043e\u0440\u0441\u0438\u043d\u0433 \u0413\u041a\u041f",
+      //           part_name:
+      //             "\u0417\u0430\u043c\u0456\u0440\u0438 \u0415\u041c\u041f",
+      //           exec_status: "IP",
+      //           planned_start: "2020-09-16",
+      //           planned_finish: "2020-10-31",
+      //           start_date: "2020-10-16",
+      //           finish_date: "None",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8423,
+      //       object_code: "LVI SNV POL",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u043a\u043e \u0412\u0456\u043a\u0442\u043e\u0440",
+      //       exec_status: "IP",
+      //       planned_start: "2020-09-16",
+      //       planned_finish: "2020-10-31",
+      //       tasks: [
+      //         {
+      //           pk: 25280,
+      //           executor:
+      //             "\u0410\u0443\u0442\u0441\u043e\u0440\u0441\u0438\u043d\u0433 \u0413\u041a\u041f",
+      //           part_name:
+      //             "\u0417\u0430\u043c\u0456\u0440\u0438 \u0415\u041c\u041f",
+      //           exec_status: "IP",
+      //           planned_start: "2020-09-16",
+      //           planned_finish: "2020-10-31",
+      //           start_date: "2020-10-16",
+      //           finish_date: "None",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8551,
+      //       object_code: "UC0766",
+      //       owner:
+      //         "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
+      //       exec_status: "IW",
+      //       planned_start: "2020-10-27",
+      //       planned_finish: "None",
+      //       tasks: [
+      //         {
+      //           pk: 25241,
+      //           executor:
+      //             "\u0410\u0443\u0442\u0441\u043e\u0440\u0441\u0438\u043d\u0433 \u0406\u0442\u0435\u043b",
+      //           part_name: "\u0440\u043f",
+      //           exec_status: "IW",
+      //           planned_start: "2020-11-02",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "None",
+      //           finish_date: "None",
+      //         },
+      //         {
+      //           pk: 25242,
+      //           executor:
+      //             "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
+      //           part_name: "\u041e\u0412\u041d\u0421",
+      //           exec_status: "IW",
+      //           planned_start: "2020-11-02",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "None",
+      //           finish_date: "None",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8419,
+      //       object_code: "UL4730",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-09-15",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25156,
+      //           executor:
+      //             "\u0422\u0435\u0441\u043b\u044e\u043a \u041e\u043b\u0435\u0433",
+      //           part_name: "\u0421\u0445\u0435\u043c\u0430",
+      //           exec_status: "HD",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-04",
+      //           start_date: "2020-11-04",
+      //           finish_date: "2020-11-04",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8554,
+      //       object_code: "UR1828",
+      //       owner:
+      //         "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
+      //       exec_status: "IW",
+      //       planned_start: "2020-10-28",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25239,
+      //           executor:
+      //             "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
+      //           part_name: "\u0432\u0438\u0457\u0437\u0434",
+      //           exec_status: "HD",
+      //           planned_start: "2020-11-05",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "2020-11-06",
+      //           finish_date: "2020-11-06",
+      //         },
+      //         {
+      //           pk: 25240,
+      //           executor:
+      //             "\u041b\u0435\u0432\u0447\u0435\u043d\u043a\u043e \u042f\u0440\u043e\u0441\u043b\u0430\u0432",
+      //           part_name: "\u0432\u0438\u0457\u0437\u0434",
+      //           exec_status: "HD",
+      //           planned_start: "2020-11-05",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "2020-11-06",
+      //           finish_date: "2020-11-06",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8299,
+      //       object_code: "UL0673 \u0431\u043e\u0440\u0433",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-11-02",
+      //       planned_finish: "2020-08-31",
+      //       tasks: [
+      //         {
+      //           pk: 25038,
+      //           executor:
+      //             "\u0410\u0440\u0433\u0443\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //           part_name:
+      //             "\u041f\u0417, \u0434\u043e\u0434\u0430\u0442\u043a\u0438",
+      //           exec_status: "IP",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-04",
+      //           start_date: "2020-11-04",
+      //           finish_date: "None",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8171,
+      //       object_code: "UL2966",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-11-04",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 24218,
+      //           executor:
+      //             "\u0422\u0435\u0441\u043b\u044e\u043a \u041e\u043b\u0435\u0433",
+      //           part_name: "\u0410\u0411+\u0415\u0422\u0420",
+      //           exec_status: "IP",
+      //           planned_start: "None",
+      //           planned_finish: "2020-08-27",
+      //           start_date: "2020-11-05",
+      //           finish_date: "None",
+      //         },
+      //         {
+      //           pk: 24310,
+      //           executor:
+      //             "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
+      //           part_name: "\u0422\u0425, \u041e\u0412\u041d\u0421",
+      //           exec_status: "IW",
+      //           planned_start: "None",
+      //           planned_finish: "2020-08-27",
+      //           start_date: "None",
+      //           finish_date: "None",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8556,
+      //       object_code: "UR0828",
+      //       owner:
+      //         "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
+      //       exec_status: "IW",
+      //       planned_start: "2020-10-28",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25237,
+      //           executor:
+      //             "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
+      //           part_name: "\u0432\u0438\u0457\u0437\u0434",
+      //           exec_status: "HD",
+      //           planned_start: "2020-11-05",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "2020-11-06",
+      //           finish_date: "2020-11-06",
+      //         },
+      //         {
+      //           pk: 25238,
+      //           executor:
+      //             "\u041b\u0435\u0432\u0447\u0435\u043d\u043a\u043e \u042f\u0440\u043e\u0441\u043b\u0430\u0432",
+      //           part_name: "\u0432\u0438\u0457\u0437\u0434",
+      //           exec_status: "HD",
+      //           planned_start: "2020-11-05",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "2020-11-06",
+      //           finish_date: "2020-11-06",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8555,
+      //       object_code: "UR1824",
+      //       owner:
+      //         "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
+      //       exec_status: "IW",
+      //       planned_start: "2020-10-28",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25245,
+      //           executor:
+      //             "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
+      //           part_name: "\u0432\u0438\u0457\u0437\u0434",
+      //           exec_status: "HD",
+      //           planned_start: "2020-11-03",
+      //           planned_finish: "2020-11-04",
+      //           start_date: "2020-11-04",
+      //           finish_date: "2020-11-04",
+      //         },
+      //         {
+      //           pk: 25246,
+      //           executor:
+      //             "\u041b\u0435\u0432\u0447\u0435\u043d\u043a\u043e \u042f\u0440\u043e\u0441\u043b\u0430\u0432",
+      //           part_name: "\u0432\u0438\u0457\u0437\u0434",
+      //           exec_status: "HD",
+      //           planned_start: "2020-11-03",
+      //           planned_finish: "2020-11-04",
+      //           start_date: "2020-11-04",
+      //           finish_date: "2020-11-04",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8298,
+      //       object_code: "UU0900 \u0431\u043e\u0440\u0433",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "ST",
+      //       planned_start: "2020-08-07",
+      //       planned_finish: "2020-09-25",
+      //       tasks: [
+      //         {
+      //           pk: 25036,
+      //           executor:
+      //             "\u0410\u0440\u0433\u0443\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //           part_name:
+      //             "\u041f\u0417, \u0434\u043e\u0434\u0430\u0442\u043a\u0438",
+      //           exec_status: "HD",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-04",
+      //           start_date: "2020-11-03",
+      //           finish_date: "2020-11-04",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8432,
+      //       object_code: "UT1888 \u0436\u043e\u0432\u0442\u0435\u043d\u044c",
+      //       owner:
+      //         "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-09-21",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25120,
+      //           executor:
+      //             "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
+      //           part_name: "\u043e\u0432\u043d\u0441",
+      //           exec_status: "OC",
+      //           planned_start: "2020-10-26",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "2020-11-05",
+      //           finish_date: "2020-11-05",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8558,
+      //       object_code: "UV0649",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-10-30",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25218,
+      //           executor:
+      //             "\u041c\u0430\u0440\u0430\u0445\u043e\u0432\u0441\u044c\u043a\u0430 \u0412\u0456\u0440\u0430",
+      //           part_name: "\u0441\u0445\u0435\u043c\u0430",
+      //           exec_status: "OC",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-04",
+      //           start_date: "2020-10-30",
+      //           finish_date: "2020-11-04",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8559,
+      //       object_code: "UV0650",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-10-30",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25220,
+      //           executor:
+      //             "\u041c\u0430\u0440\u0430\u0445\u043e\u0432\u0441\u044c\u043a\u0430 \u0412\u0456\u0440\u0430",
+      //           part_name: "\u0421\u0445\u0435\u043c\u0430",
+      //           exec_status: "OC",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-05",
+      //           start_date: "2020-11-04",
+      //           finish_date: "2020-11-05",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8563,
+      //       object_code: "UL4945",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "ST",
+      //       planned_start: "2020-11-02",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25268,
+      //           executor:
+      //             "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //           part_name: "\u0417\u0432\u0456\u0442",
+      //           exec_status: "HD",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-04",
+      //           start_date: "2020-11-03",
+      //           finish_date: "2020-11-04",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8435,
+      //       object_code: "UT0846 \u0436\u043e\u0432\u0442\u0435\u043d\u044c",
+      //       owner:
+      //         "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
+      //       exec_status: "HD",
+      //       planned_start: "2020-09-21",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25213,
+      //           executor:
+      //             "\u0421\u0430\u0447\u0443\u043a \u0421\u0432\u044f\u0442\u043e\u0441\u043b\u0430\u0432",
+      //           part_name: "\u0437\u0432\u0456\u0442",
+      //           exec_status: "HD",
+      //           planned_start: "2020-10-30",
+      //           planned_finish: "2020-11-02",
+      //           start_date: "2020-10-30",
+      //           finish_date: "2020-11-03",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8560,
+      //       object_code: "UV0661",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "IP",
+      //       planned_start: "2020-10-30",
+      //       planned_finish: "2020-11-30",
+      //       tasks: [
+      //         {
+      //           pk: 25219,
+      //           executor:
+      //             "\u041c\u0430\u0440\u0430\u0445\u043e\u0432\u0441\u044c\u043a\u0430 \u0412\u0456\u0440\u0430",
+      //           part_name: "\u0441\u0445\u0435\u043c\u0430",
+      //           exec_status: "OC",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-06",
+      //           start_date: "2020-11-04",
+      //           finish_date: "2020-11-05",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8311,
+      //       object_code: "LVI KLC CNT",
+      //       owner:
+      //         "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
+      //       exec_status: "HD",
+      //       planned_start: "2020-10-01",
+      //       planned_finish: "2020-10-20",
+      //       tasks: [
+      //         {
+      //           pk: 24981,
+      //           executor:
+      //             "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
+      //           part_name: "\u043e\u0432\u043d\u0441",
+      //           exec_status: "HD",
+      //           planned_start: "2020-11-02",
+      //           planned_finish: "2020-11-03",
+      //           start_date: "2020-11-02",
+      //           finish_date: "2020-11-03",
+      //         },
+      //         {
+      //           pk: 25225,
+      //           executor:
+      //             "\u0414\u0437\u044e\u0440\u0430 \u0410\u043d\u0434\u0440\u0456\u0439",
+      //           part_name:
+      //             "\u0440\u043f \u0431\u0435\u0437 \u0437\u043e\u0432\u043d\u0456\u0448\u043d\u044c\u043e\u0433\u043e",
+      //           exec_status: "HD",
+      //           planned_start: "2020-11-02",
+      //           planned_finish: "2020-11-04",
+      //           start_date: "2020-11-02",
+      //           finish_date: "2020-11-03",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       pk: 8441,
+      //       object_code: "UU0648",
+      //       owner:
+      //         "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //       exec_status: "ST",
+      //       planned_start: "2020-09-22",
+      //       planned_finish: "2020-10-31",
+      //       tasks: [
+      //         {
+      //           pk: 25223,
+      //           executor:
+      //             "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+      //           part_name: "\u0417\u0432\u0456\u0442",
+      //           exec_status: "HD",
+      //           planned_start: "None",
+      //           planned_finish: "2020-11-02",
+      //           start_date: "2020-11-03",
+      //           finish_date: "2020-11-03",
+      //         },
+      //       ],
+      //     },
+      //   ],
+      // };
       const data = {
         view_mode: "project_view",
-        start_date: "2020-11-02",
-        end_date: "2020-11-06",
+        start_date: "2020-11-09 00:00:00",
+        end_date: "2020-11-13 00:00:00",
         projects: [
+          {
+            pk: 8394,
+            object_code: "LVI NVS TYA",
+            owner:
+              "\\u041a\\u0440\\u0438\\u0432\\u0438\\u0439 \\u0421\\u0435\\u0440\\u0433\\u0456\\u0439",
+            exec_status: "IP",
+            planned_start: "2020-10-30",
+            planned_finish: "2020-11-30",
+            tasks: [
+              {
+                pk: 25090,
+                executor:
+                  "\\u041c\\u0430\\u043b\\u0430\\u0448\\u0442\\u0430 \\u0421\\u0435\\u0440\\u0433\\u0456\\u0439",
+                part_name:
+                  "\\u041f\\u0417, \\u0413\\u041f, \\u0410\\u0411, \\u0415\\u0422\\u0420,",
+                exec_status: "IW",
+                planned_start: "2020-11-11",
+                planned_finish: "2020-11-11",
+                start_date: "None",
+                finish_date: "None",
+              },
+              {
+                pk: 25091,
+                executor:
+                  "\\u0421\\u0442\\u0443\\u043b\\u043e\\u0432 \\u0412\\u0430\\u0434\\u0438\\u043c",
+                part_name: "\\u0422\\u0425, \\u041e\\u0412\\u041d\\u0421",
+                exec_status: "IW",
+                planned_start: "2020-11-11",
+                planned_finish: "2020-11-11",
+                start_date: "2020-10-21",
+                finish_date: "None",
+              },
+            ],
+          },
           {
             pk: 8455,
             object_code: "LVI NRS TYA",
             owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
+              "\\u041a\\u0440\\u0438\\u0432\\u0438\\u0439 \\u0421\\u0435\\u0440\\u0433\\u0456\\u0439",
             exec_status: "IW",
             planned_start: "2020-10-30",
             planned_finish: "2020-11-30",
@@ -158,1446 +1654,13 @@
               {
                 pk: 25017,
                 executor:
-                  "\u041c\u0430\u043b\u0430\u0448\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
-                part_name: "\u0421\u0445\u0435\u043c\u0430",
+                  "\\u041c\\u0430\\u043b\\u0430\\u0448\\u0442\\u0430 \\u0421\\u0435\\u0440\\u0433\\u0456\\u0439",
+                part_name: "\\u0421\\u0445\\u0435\\u043c\\u0430",
                 exec_status: "IW",
-                planned_start: "None",
+                planned_start: "2020-10-21",
                 planned_finish: "2020-10-21",
                 start_date: "None",
                 finish_date: "None",
-              },
-            ],
-          },
-          {
-            pk: 8327,
-            object_code: "UL2892",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-08-17",
-            planned_finish: "2020-09-30",
-            tasks: [
-              {
-                pk: 25001,
-                executor:
-                  "\u041c\u0430\u0440\u0430\u0445\u043e\u0432\u0441\u044c\u043a\u0430 \u0412\u0456\u0440\u0430",
-                part_name: "\u041f\u0417, \u0413\u041f",
-                exec_status: "OC",
-                planned_start: "None",
-                planned_finish: "2020-10-23",
-                start_date: "2020-10-20",
-                finish_date: "2020-10-22",
-              },
-            ],
-          },
-          {
-            pk: 8203,
-            object_code: "UL0830 \u0431\u043e\u0440\u0433",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "ST",
-            planned_start: "2020-07-08",
-            planned_finish: "2020-08-03",
-            tasks: [
-              {
-                pk: 25264,
-                executor:
-                  "\u0410\u0440\u0433\u0443\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
-                part_name: "\u0417\u0432\u0456\u0442",
-                exec_status: "HD",
-                planned_start: "None",
-                planned_finish: "2020-11-03",
-                start_date: "2020-11-03",
-                finish_date: "2020-11-03",
-              },
-            ],
-          },
-          {
-            pk: 8334,
-            object_code: "UT1917",
-            owner:
-              "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-08-19",
-            planned_finish: "2020-09-30",
-            tasks: [
-              {
-                pk: 25282,
-                executor:
-                  "\u041b\u0435\u0432\u0447\u0435\u043d\u043a\u043e \u042f\u0440\u043e\u0441\u043b\u0430\u0432",
-                part_name: "\u0437\u0432\u0456\u0442",
-                exec_status: "IP",
-                planned_start: "2020-11-05",
-                planned_finish: "2020-11-09",
-                start_date: "2020-11-06",
-                finish_date: "None",
-              },
-              {
-                pk: 25283,
-                executor:
-                  "\u0410\u0443\u0442\u0441\u043e\u0440\u0441\u0438\u043d\u0433 \u0406\u0442\u0435\u043b",
-                part_name: "\u0440\u0430\u0441\u0447\u0435\u0442",
-                exec_status: "IW",
-                planned_start: "2020-11-05",
-                planned_finish: "2020-11-09",
-                start_date: "None",
-                finish_date: "None",
-              },
-            ],
-          },
-          {
-            pk: 8465,
-            object_code: "UV0835",
-            owner:
-              "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-09-25",
-            planned_finish: "2020-10-30",
-            tasks: [
-              {
-                pk: 25127,
-                executor:
-                  "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
-                part_name: "\u043e\u0432\u043d\u0441",
-                exec_status: "IP",
-                planned_start: "2020-11-02",
-                planned_finish: "2020-11-06",
-                start_date: "2020-11-05",
-                finish_date: "None",
-              },
-              {
-                pk: 25128,
-                executor:
-                  "\u0425\u043e\u043b\u043e\u0434 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-                part_name: "\u0440\u043f",
-                exec_status: "IP",
-                planned_start: "2020-11-02",
-                planned_finish: "2020-11-06",
-                start_date: "2020-10-27",
-                finish_date: "None",
-              },
-            ],
-          },
-          {
-            pk: 8467,
-            object_code: "UL3741",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "HD",
-            planned_start: "2020-09-27",
-            planned_finish: "2020-10-30",
-            tasks: [
-              {
-                pk: 25271,
-                executor:
-                  "\u041c\u0430\u043b\u0430\u0448\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
-                part_name:
-                  "\u043a\u043e\u0440\u0438\u0433\u0443\u0432\u0430\u043d\u043d\u044f",
-                exec_status: "HD",
-                planned_start: "None",
-                planned_finish: "2020-11-04",
-                start_date: "2020-11-03",
-                finish_date: "2020-11-03",
-              },
-            ],
-          },
-          {
-            pk: 8340,
-            object_code: "UF2907",
-            owner:
-              "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-08-21",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25229,
-                executor:
-                  "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
-                part_name: "\u041e\u0412\u041d\u0421",
-                exec_status: "IW",
-                planned_start: "2020-11-02",
-                planned_finish: "2020-11-05",
-                start_date: "None",
-                finish_date: "None",
-              },
-              {
-                pk: 25228,
-                executor:
-                  "\u0421\u0430\u0447\u0443\u043a \u0421\u0432\u044f\u0442\u043e\u0441\u043b\u0430\u0432",
-                part_name: "\u0440\u043f",
-                exec_status: "IP",
-                planned_start: "2020-11-03",
-                planned_finish: "2020-11-06",
-                start_date: "2020-11-03",
-                finish_date: "None",
-              },
-            ],
-          },
-          {
-            pk: 8341,
-            object_code: "UF2907",
-            owner:
-              "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-08-21",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25248,
-                executor:
-                  "\u041b\u0435\u0432\u0447\u0435\u043d\u043a\u043e \u042f\u0440\u043e\u0441\u043b\u0430\u0432",
-                part_name: "\u0437\u0432\u0456\u0442",
-                exec_status: "OC",
-                planned_start: "2020-11-04",
-                planned_finish: "2020-11-06",
-                start_date: "2020-11-02",
-                finish_date: "2020-11-05",
-              },
-              {
-                pk: 25249,
-                executor:
-                  "\u0410\u0443\u0442\u0441\u043e\u0440\u0441\u0438\u043d\u0433 \u0406\u0442\u0435\u043b",
-                part_name: "\u0440\u0430\u0441\u0447\u0435\u0442",
-                exec_status: "IW",
-                planned_start: "2020-11-04",
-                planned_finish: "2020-11-06",
-                start_date: "None",
-                finish_date: "None",
-              },
-            ],
-          },
-          {
-            pk: 8212,
-            object_code: "UL4945",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "ST",
-            planned_start: "2020-07-09",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25163,
-                executor:
-                  "\u041c\u0430\u043b\u0430\u0448\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
-                part_name: "\u041f\u0417, \u0413\u041f",
-                exec_status: "HD",
-                planned_start: "None",
-                planned_finish: "2020-11-03",
-                start_date: "2020-11-03",
-                finish_date: "2020-11-03",
-              },
-              {
-                pk: 25164,
-                executor:
-                  "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
-                part_name: "\u0422\u0425, \u041e\u0412\u041d\u0421",
-                exec_status: "HD",
-                planned_start: "None",
-                planned_finish: "2020-11-03",
-                start_date: "2020-10-28",
-                finish_date: "2020-11-03",
-              },
-            ],
-          },
-          {
-            pk: 8480,
-            object_code: "LK1062",
-            owner:
-              "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-10-02",
-            planned_finish: "2020-10-20",
-            tasks: [
-              {
-                pk: 25226,
-                executor:
-                  "\u0410\u0443\u0442\u0441\u043e\u0440\u0441\u0438\u043d\u0433 \u0406\u0442\u0435\u043b",
-                part_name:
-                  "\u043a\u043e\u0440\u0438\u0433\u0443\u0432\u0430\u043d\u043d\u044f \u0440\u043f",
-                exec_status: "HD",
-                planned_start: "2020-11-02",
-                planned_finish: "2020-11-02",
-                start_date: "2020-11-02",
-                finish_date: "2020-11-02",
-              },
-              {
-                pk: 25215,
-                executor:
-                  "\u041b\u0435\u0432\u0447\u0435\u043d\u043a\u043e \u042f\u0440\u043e\u0441\u043b\u0430\u0432",
-                part_name:
-                  "\u043a\u043e\u0440\u0438\u0433\u0443\u0432\u0430\u043d\u043d\u044f \u0437\u0432\u0456\u0442\u0443",
-                exec_status: "OC",
-                planned_start: "2020-10-30",
-                planned_finish: "2020-11-03",
-                start_date: "2020-10-30",
-                finish_date: "2020-11-02",
-              },
-              {
-                pk: 25227,
-                executor:
-                  "\u0410\u0443\u0442\u0441\u043e\u0440\u0441\u0438\u043d\u0433 \u0406\u0442\u0435\u043b",
-                part_name: "\u0440\u0430\u0441\u0447\u0435\u0442",
-                exec_status: "HD",
-                planned_start: "2020-11-02",
-                planned_finish: "2020-11-03",
-                start_date: "2020-11-02",
-                finish_date: "2020-11-02",
-              },
-              {
-                pk: 25250,
-                executor:
-                  "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
-                part_name: "\u043e\u0432\u043d\u0441",
-                exec_status: "OC",
-                planned_start: "2020-11-02",
-                planned_finish: "2020-11-04",
-                start_date: "2020-11-02",
-                finish_date: "2020-11-02",
-              },
-            ],
-          },
-          {
-            pk: 8352,
-            object_code: "UL0830-2 \u0431\u043e\u0440\u0433",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-10-20",
-            planned_finish: "2020-09-08",
-            tasks: [
-              {
-                pk: 25185,
-                executor:
-                  "\u0410\u0440\u0433\u0443\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
-                part_name: "\u0417\u0432\u0456\u0442",
-                exec_status: "OC",
-                planned_start: "None",
-                planned_finish: "2020-10-30",
-                start_date: "2020-10-28",
-                finish_date: "2020-11-02",
-              },
-            ],
-          },
-          {
-            pk: 8485,
-            object_code: "UF1519",
-            owner:
-              "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-10-05",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25247,
-                executor:
-                  "\u0414\u0437\u044e\u0440\u0430 \u0410\u043d\u0434\u0440\u0456\u0439",
-                part_name: "\u0441\u0445\u0435\u043c\u0430",
-                exec_status: "HD",
-                planned_start: "2020-11-04",
-                planned_finish: "2020-11-05",
-                start_date: "2020-11-04",
-                finish_date: "2020-11-05",
-              },
-            ],
-          },
-          {
-            pk: 8236,
-            object_code: "UL4881",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-10-26",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25182,
-                executor:
-                  "\u0422\u0435\u0441\u043b\u044e\u043a \u041e\u043b\u0435\u0433",
-                part_name: "\u0410\u0411+\u0415\u0422\u0420",
-                exec_status: "HD",
-                planned_start: "None",
-                planned_finish: "2020-11-03",
-                start_date: "2020-11-03",
-                finish_date: "2020-11-03",
-              },
-              {
-                pk: 25183,
-                executor:
-                  "\u0422\u0435\u0441\u043b\u044e\u043a \u041e\u043b\u0435\u0433",
-                part_name: "\u041f\u0417, \u0413\u041f",
-                exec_status: "OC",
-                planned_start: "None",
-                planned_finish: "2020-11-06",
-                start_date: "2020-11-05",
-                finish_date: "2020-11-05",
-              },
-              {
-                pk: 25184,
-                executor:
-                  "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
-                part_name: "\u0422\u0425, \u041e\u0412\u041d\u0421",
-                exec_status: "IW",
-                planned_start: "None",
-                planned_finish: "2020-11-06",
-                start_date: "None",
-                finish_date: "None",
-              },
-            ],
-          },
-          {
-            pk: 8506,
-            object_code: "LVI TYA TRB",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-10-26",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25088,
-                executor:
-                  "\u041c\u0430\u043b\u0430\u0448\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
-                part_name:
-                  "\u041f\u0417, \u0413\u041f, \u0410\u0411, \u0415\u0422\u0420",
-                exec_status: "IP",
-                planned_start: "None",
-                planned_finish: "2020-11-06",
-                start_date: "2020-11-04",
-                finish_date: "None",
-              },
-              {
-                pk: 25089,
-                executor:
-                  "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
-                part_name: "\u0422\u0425, \u041e\u0412\u041d\u0421",
-                exec_status: "IW",
-                planned_start: "None",
-                planned_finish: "2020-11-06",
-                start_date: "None",
-                finish_date: "None",
-              },
-            ],
-          },
-          {
-            pk: 8507,
-            object_code: "LVI TYA TRB",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IW",
-            planned_start: "2020-10-26",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25030,
-                executor:
-                  "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-                part_name: "\u0417\u0432\u0456\u0442",
-                exec_status: "IW",
-                planned_start: "None",
-                planned_finish: "2020-10-23",
-                start_date: "None",
-                finish_date: "None",
-              },
-            ],
-          },
-          {
-            pk: 8379,
-            object_code: "UL4867",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-08-31",
-            planned_finish: "2020-09-30",
-            tasks: [
-              {
-                pk: 25118,
-                executor:
-                  "\u041c\u0430\u0440\u0430\u0445\u043e\u0432\u0441\u044c\u043a\u0430 \u0412\u0456\u0440\u0430",
-                part_name: "\u0441\u0445\u0435\u043c\u0430",
-                exec_status: "HD",
-                planned_start: "None",
-                planned_finish: "2020-11-06",
-                start_date: "2020-10-23",
-                finish_date: "2020-11-03",
-              },
-            ],
-          },
-          {
-            pk: 8512,
-            object_code: "LVI RSP TOW",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IW",
-            planned_start: "2020-10-26",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25035,
-                executor:
-                  "\u041c\u0430\u043b\u0430\u0448\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
-                part_name: "\u0421\u0445\u0435\u043c\u0430",
-                exec_status: "IW",
-                planned_start: "None",
-                planned_finish: "2020-11-06",
-                start_date: "None",
-                finish_date: "None",
-              },
-            ],
-          },
-          {
-            pk: 8518,
-            object_code: "UU0947",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IW",
-            planned_start: "2020-11-02",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25272,
-                executor:
-                  "\u0410\u0440\u0433\u0443\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
-                part_name: "\u0412\u0438\u0457\u0437\u0434",
-                exec_status: "IW",
-                planned_start: "2020-11-06",
-                planned_finish: "None",
-                start_date: "None",
-                finish_date: "None",
-              },
-              {
-                pk: 25273,
-                executor:
-                  "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-                part_name: "\u0412\u0438\u0457\u0437\u0434",
-                exec_status: "IW",
-                planned_start: "2020-11-06",
-                planned_finish: "None",
-                start_date: "None",
-                finish_date: "None",
-              },
-              {
-                pk: 25274,
-                executor:
-                  "\u041c\u0430\u043b\u0430\u0448\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
-                part_name: "\u0410\u0411",
-                exec_status: "IW",
-                planned_start: "None",
-                planned_finish: "2020-11-06",
-                start_date: "None",
-                finish_date: "None",
-              },
-            ],
-          },
-          {
-            pk: 8136,
-            object_code: "UL0936",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "ST",
-            planned_start: "2020-06-18",
-            planned_finish: "2020-08-31",
-            tasks: [
-              {
-                pk: 25262,
-                executor:
-                  "\u0410\u0440\u0433\u0443\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
-                part_name: "\u0417\u0432\u0456\u0442",
-                exec_status: "HD",
-                planned_start: "None",
-                planned_finish: "2020-11-03",
-                start_date: "2020-11-03",
-                finish_date: "2020-11-03",
-              },
-            ],
-          },
-          {
-            pk: 8520,
-            object_code: "UU0669",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-10-16",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25189,
-                executor:
-                  "\u041c\u0430\u043b\u0430\u0448\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
-                part_name: "\u0410\u0431",
-                exec_status: "HD",
-                planned_start: "None",
-                planned_finish: "2020-11-03",
-                start_date: "2020-11-03",
-                finish_date: "2020-11-03",
-              },
-              {
-                pk: 25191,
-                executor:
-                  "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
-                part_name: "\u041e\u0412\u041d\u0421",
-                exec_status: "IW",
-                planned_start: "None",
-                planned_finish: "2020-11-04",
-                start_date: "None",
-                finish_date: "None",
-              },
-            ],
-          },
-          {
-            pk: 8138,
-            object_code: "UL0913",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "HD",
-            planned_start: "2020-06-18",
-            planned_finish: "2020-08-31",
-            tasks: [
-              {
-                pk: 25251,
-                executor:
-                  "\u041b\u0430\u0437\u0430\u0440\u0454\u0432 \u0410\u043d\u0434\u0440\u0456\u0439",
-                part_name:
-                  "\u0432\u0438\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u043d\u044f",
-                exec_status: "HD",
-                planned_start: "None",
-                planned_finish: "2020-11-05",
-                start_date: "2020-11-02",
-                finish_date: "2020-11-02",
-              },
-            ],
-          },
-          {
-            pk: 8522,
-            object_code: "UL2730",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-10-19",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25221,
-                executor:
-                  "\u0422\u0435\u0441\u043b\u044e\u043a \u041e\u043b\u0435\u0433",
-                part_name: "\u0436\u0438\u0432\u043b\u0435\u043d\u043d\u044f",
-                exec_status: "OC",
-                planned_start: "None",
-                planned_finish: "2020-11-03",
-                start_date: "2020-11-03",
-                finish_date: "2020-11-03",
-              },
-            ],
-          },
-          {
-            pk: 8395,
-            object_code: "UL3817",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-10-26",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25175,
-                executor:
-                  "\u041b\u0430\u0437\u0430\u0440\u0454\u0432 \u0410\u043d\u0434\u0440\u0456\u0439",
-                part_name: "\u041f\u0417,\u0410\u0411,\u0415\u0422\u0420",
-                exec_status: "HD",
-                planned_start: "None",
-                planned_finish: "2020-11-04",
-                start_date: "2020-11-02",
-                finish_date: "2020-11-04",
-              },
-              {
-                pk: 25176,
-                executor:
-                  "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
-                part_name: "\u0422\u0425, \u041e\u0412\u041d\u0421",
-                exec_status: "IW",
-                planned_start: "None",
-                planned_finish: "2020-11-04",
-                start_date: "None",
-                finish_date: "None",
-              },
-            ],
-          },
-          {
-            pk: 8533,
-            object_code: "UL3611",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-10-22",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25199,
-                executor:
-                  "\u041c\u0430\u0440\u0430\u0445\u043e\u0432\u0441\u044c\u043a\u0430 \u0412\u0456\u0440\u0430",
-                part_name:
-                  "\u041f\u0417, \u0410\u0411, \u0415\u0422\u0420, \u0422\u0425",
-                exec_status: "HD",
-                planned_start: "None",
-                planned_finish: "2020-11-03",
-                start_date: "2020-10-29",
-                finish_date: "2020-10-30",
-              },
-              {
-                pk: 25200,
-                executor:
-                  "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
-                part_name: "\u041e\u0412\u041d\u0421",
-                exec_status: "OC",
-                planned_start: "None",
-                planned_finish: "2020-11-03",
-                start_date: "2020-11-04",
-                finish_date: "2020-11-04",
-              },
-            ],
-          },
-          {
-            pk: 8534,
-            object_code: "UL2835",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-10-22",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25193,
-                executor:
-                  "\u041c\u0430\u0440\u0430\u0445\u043e\u0432\u0441\u044c\u043a\u0430 \u0412\u0456\u0440\u0430",
-                part_name:
-                  "\u041f\u0417, \u0410\u0411, \u0415\u0422\u0420, \u0422\u0425",
-                exec_status: "HD",
-                planned_start: "None",
-                planned_finish: "2020-11-02",
-                start_date: "2020-10-29",
-                finish_date: "2020-10-29",
-              },
-              {
-                pk: 25194,
-                executor:
-                  "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
-                part_name: "\u041e\u0412\u041d\u0421",
-                exec_status: "OC",
-                planned_start: "None",
-                planned_finish: "2020-11-02",
-                start_date: "2020-11-02",
-                finish_date: "2020-11-04",
-              },
-            ],
-          },
-          {
-            pk: 8535,
-            object_code: "UL3708",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-10-22",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25197,
-                executor:
-                  "\u041c\u0430\u043b\u0430\u0448\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
-                part_name:
-                  "\u041f\u0417,\u0410\u0411,\u0415\u0422\u0420, \u0422\u0425",
-                exec_status: "HD",
-                planned_start: "None",
-                planned_finish: "2020-11-02",
-                start_date: "2020-11-02",
-                finish_date: "2020-11-02",
-              },
-              {
-                pk: 25198,
-                executor:
-                  "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
-                part_name: "\u041e\u0412\u041d\u0421",
-                exec_status: "OC",
-                planned_start: "None",
-                planned_finish: "2020-11-04",
-                start_date: "2020-11-04",
-                finish_date: "2020-11-05",
-              },
-            ],
-          },
-          {
-            pk: 8536,
-            object_code: "UL3944",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "HD",
-            planned_start: "2020-10-22",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25195,
-                executor:
-                  "\u041c\u0430\u043b\u0430\u0448\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
-                part_name:
-                  "\u041f\u0417,\u0410\u0411, \u0415\u0422\u0420, \u0422\u0425",
-                exec_status: "HD",
-                planned_start: "None",
-                planned_finish: "2020-11-02",
-                start_date: "2020-11-02",
-                finish_date: "2020-11-02",
-              },
-              {
-                pk: 25196,
-                executor:
-                  "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
-                part_name: "\u041e\u0412\u041d\u0421",
-                exec_status: "HD",
-                planned_start: "None",
-                planned_finish: "2020-11-04",
-                start_date: "2020-11-02",
-                finish_date: "2020-11-02",
-              },
-            ],
-          },
-          {
-            pk: 8023,
-            object_code: "UL4915",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-05-04",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25232,
-                executor:
-                  "\u041c\u0430\u0440\u0430\u0445\u043e\u0432\u0441\u044c\u043a\u0430 \u0412\u0456\u0440\u0430",
-                part_name: "\u0421\u0445\u0435\u043c\u0430",
-                exec_status: "HD",
-                planned_start: "None",
-                planned_finish: "2020-11-03",
-                start_date: "2020-11-02",
-                finish_date: "2020-11-03",
-              },
-            ],
-          },
-          {
-            pk: 8543,
-            object_code: "UT0663",
-            owner:
-              "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-11-04",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25148,
-                executor:
-                  "\u041b\u0435\u0432\u0447\u0435\u043d\u043a\u043e \u042f\u0440\u043e\u0441\u043b\u0430\u0432",
-                part_name: "\u0432\u0438\u0457\u0437\u0434",
-                exec_status: "HD",
-                planned_start: "2020-11-04",
-                planned_finish: "2020-11-04",
-                start_date: "2020-11-04",
-                finish_date: "2020-11-04",
-              },
-              {
-                pk: 25149,
-                executor:
-                  "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-                part_name: "\u0432\u0438\u0457\u0437\u0434",
-                exec_status: "HD",
-                planned_start: "2020-11-04",
-                planned_finish: "2020-11-04",
-                start_date: "2020-11-04",
-                finish_date: "2020-11-04",
-              },
-              {
-                pk: 25284,
-                executor:
-                  "\u0414\u0437\u044e\u0440\u0430 \u0410\u043d\u0434\u0440\u0456\u0439",
-                part_name: "\u0441\u0445\u0435\u043c\u0430",
-                exec_status: "IP",
-                planned_start: "2020-11-06",
-                planned_finish: "2020-11-09",
-                start_date: "2020-11-06",
-                finish_date: "None",
-              },
-              {
-                pk: 25285,
-                executor:
-                  "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
-                part_name: "\u043e\u0432\u043d\u0441",
-                exec_status: "HD",
-                planned_start: "2020-11-06",
-                planned_finish: "2020-11-13",
-                start_date: "2020-11-06",
-                finish_date: "2020-11-06",
-              },
-            ],
-          },
-          {
-            pk: 8544,
-            object_code: "UT0632",
-            owner:
-              "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-            exec_status: "IW",
-            planned_start: "2020-10-26",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25146,
-                executor:
-                  "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-                part_name: "\u0432\u0438\u0457\u0437\u0434",
-                exec_status: "HD",
-                planned_start: "2020-11-04",
-                planned_finish: "2020-11-04",
-                start_date: "2020-11-04",
-                finish_date: "2020-11-04",
-              },
-              {
-                pk: 25147,
-                executor:
-                  "\u041b\u0435\u0432\u0447\u0435\u043d\u043a\u043e \u042f\u0440\u043e\u0441\u043b\u0430\u0432",
-                part_name: "\u0432\u0438\u0457\u0437\u0434",
-                exec_status: "HD",
-                planned_start: "2020-11-04",
-                planned_finish: "2020-11-04",
-                start_date: "2020-11-04",
-                finish_date: "2020-11-04",
-              },
-            ],
-          },
-          {
-            pk: 8547,
-            object_code: "UL3817",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "HD",
-            planned_start: "2020-10-27",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25170,
-                executor:
-                  "\u041b\u0430\u0437\u0430\u0440\u0454\u0432 \u0410\u043d\u0434\u0440\u0456\u0439",
-                part_name: "\u043f\u0440\u0438\u0432\u044f\u0437\u043a\u0430",
-                exec_status: "HD",
-                planned_start: "None",
-                planned_finish: "2020-11-02",
-                start_date: "2020-10-28",
-                finish_date: "2020-11-02",
-              },
-            ],
-          },
-          {
-            pk: 8420,
-            object_code: "UL2930",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-10-26",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25155,
-                executor:
-                  "\u0422\u0435\u0441\u043b\u044e\u043a \u041e\u043b\u0435\u0433",
-                part_name: "\u0421\u0445\u0435\u043c\u0430",
-                exec_status: "OC",
-                planned_start: "None",
-                planned_finish: "2020-11-06",
-                start_date: "2020-11-04",
-                finish_date: "2020-11-05",
-              },
-            ],
-          },
-          {
-            pk: 8548,
-            object_code: "UL3817",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-10-27",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25173,
-                executor:
-                  "\u041b\u0430\u0437\u0430\u0440\u0454\u0432 \u0410\u043d\u0434\u0440\u0456\u0439",
-                part_name: "\u0417\u0432\u0456\u0442",
-                exec_status: "IP",
-                planned_start: "None",
-                planned_finish: "2020-11-06",
-                start_date: "2020-11-06",
-                finish_date: "None",
-              },
-            ],
-          },
-          {
-            pk: 8422,
-            object_code: "LVI SOL GRP",
-            owner:
-              "\u041a\u0440\u0438\u0432\u043a\u043e \u0412\u0456\u043a\u0442\u043e\u0440",
-            exec_status: "IP",
-            planned_start: "2020-09-16",
-            planned_finish: "2020-10-31",
-            tasks: [
-              {
-                pk: 25281,
-                executor:
-                  "\u0410\u0443\u0442\u0441\u043e\u0440\u0441\u0438\u043d\u0433 \u0413\u041a\u041f",
-                part_name:
-                  "\u0417\u0430\u043c\u0456\u0440\u0438 \u0415\u041c\u041f",
-                exec_status: "IP",
-                planned_start: "2020-09-16",
-                planned_finish: "2020-10-31",
-                start_date: "2020-10-16",
-                finish_date: "None",
-              },
-            ],
-          },
-          {
-            pk: 8423,
-            object_code: "LVI SNV POL",
-            owner:
-              "\u041a\u0440\u0438\u0432\u043a\u043e \u0412\u0456\u043a\u0442\u043e\u0440",
-            exec_status: "IP",
-            planned_start: "2020-09-16",
-            planned_finish: "2020-10-31",
-            tasks: [
-              {
-                pk: 25280,
-                executor:
-                  "\u0410\u0443\u0442\u0441\u043e\u0440\u0441\u0438\u043d\u0433 \u0413\u041a\u041f",
-                part_name:
-                  "\u0417\u0430\u043c\u0456\u0440\u0438 \u0415\u041c\u041f",
-                exec_status: "IP",
-                planned_start: "2020-09-16",
-                planned_finish: "2020-10-31",
-                start_date: "2020-10-16",
-                finish_date: "None",
-              },
-            ],
-          },
-          {
-            pk: 8551,
-            object_code: "UC0766",
-            owner:
-              "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-            exec_status: "IW",
-            planned_start: "2020-10-27",
-            planned_finish: "None",
-            tasks: [
-              {
-                pk: 25241,
-                executor:
-                  "\u0410\u0443\u0442\u0441\u043e\u0440\u0441\u0438\u043d\u0433 \u0406\u0442\u0435\u043b",
-                part_name: "\u0440\u043f",
-                exec_status: "IW",
-                planned_start: "2020-11-02",
-                planned_finish: "2020-11-06",
-                start_date: "None",
-                finish_date: "None",
-              },
-              {
-                pk: 25242,
-                executor:
-                  "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
-                part_name: "\u041e\u0412\u041d\u0421",
-                exec_status: "IW",
-                planned_start: "2020-11-02",
-                planned_finish: "2020-11-06",
-                start_date: "None",
-                finish_date: "None",
-              },
-            ],
-          },
-          {
-            pk: 8419,
-            object_code: "UL4730",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-09-15",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25156,
-                executor:
-                  "\u0422\u0435\u0441\u043b\u044e\u043a \u041e\u043b\u0435\u0433",
-                part_name: "\u0421\u0445\u0435\u043c\u0430",
-                exec_status: "HD",
-                planned_start: "None",
-                planned_finish: "2020-11-04",
-                start_date: "2020-11-04",
-                finish_date: "2020-11-04",
-              },
-            ],
-          },
-          {
-            pk: 8554,
-            object_code: "UR1828",
-            owner:
-              "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-            exec_status: "IW",
-            planned_start: "2020-10-28",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25239,
-                executor:
-                  "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-                part_name: "\u0432\u0438\u0457\u0437\u0434",
-                exec_status: "HD",
-                planned_start: "2020-11-05",
-                planned_finish: "2020-11-06",
-                start_date: "2020-11-06",
-                finish_date: "2020-11-06",
-              },
-              {
-                pk: 25240,
-                executor:
-                  "\u041b\u0435\u0432\u0447\u0435\u043d\u043a\u043e \u042f\u0440\u043e\u0441\u043b\u0430\u0432",
-                part_name: "\u0432\u0438\u0457\u0437\u0434",
-                exec_status: "HD",
-                planned_start: "2020-11-05",
-                planned_finish: "2020-11-06",
-                start_date: "2020-11-06",
-                finish_date: "2020-11-06",
-              },
-            ],
-          },
-          {
-            pk: 8299,
-            object_code: "UL0673 \u0431\u043e\u0440\u0433",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-11-02",
-            planned_finish: "2020-08-31",
-            tasks: [
-              {
-                pk: 25038,
-                executor:
-                  "\u0410\u0440\u0433\u0443\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
-                part_name:
-                  "\u041f\u0417, \u0434\u043e\u0434\u0430\u0442\u043a\u0438",
-                exec_status: "IP",
-                planned_start: "None",
-                planned_finish: "2020-11-04",
-                start_date: "2020-11-04",
-                finish_date: "None",
-              },
-            ],
-          },
-          {
-            pk: 8171,
-            object_code: "UL2966",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-11-04",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 24218,
-                executor:
-                  "\u0422\u0435\u0441\u043b\u044e\u043a \u041e\u043b\u0435\u0433",
-                part_name: "\u0410\u0411+\u0415\u0422\u0420",
-                exec_status: "IP",
-                planned_start: "None",
-                planned_finish: "2020-08-27",
-                start_date: "2020-11-05",
-                finish_date: "None",
-              },
-              {
-                pk: 24310,
-                executor:
-                  "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
-                part_name: "\u0422\u0425, \u041e\u0412\u041d\u0421",
-                exec_status: "IW",
-                planned_start: "None",
-                planned_finish: "2020-08-27",
-                start_date: "None",
-                finish_date: "None",
-              },
-            ],
-          },
-          {
-            pk: 8556,
-            object_code: "UR0828",
-            owner:
-              "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-            exec_status: "IW",
-            planned_start: "2020-10-28",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25237,
-                executor:
-                  "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-                part_name: "\u0432\u0438\u0457\u0437\u0434",
-                exec_status: "HD",
-                planned_start: "2020-11-05",
-                planned_finish: "2020-11-06",
-                start_date: "2020-11-06",
-                finish_date: "2020-11-06",
-              },
-              {
-                pk: 25238,
-                executor:
-                  "\u041b\u0435\u0432\u0447\u0435\u043d\u043a\u043e \u042f\u0440\u043e\u0441\u043b\u0430\u0432",
-                part_name: "\u0432\u0438\u0457\u0437\u0434",
-                exec_status: "HD",
-                planned_start: "2020-11-05",
-                planned_finish: "2020-11-06",
-                start_date: "2020-11-06",
-                finish_date: "2020-11-06",
-              },
-            ],
-          },
-          {
-            pk: 8555,
-            object_code: "UR1824",
-            owner:
-              "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-            exec_status: "IW",
-            planned_start: "2020-10-28",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25245,
-                executor:
-                  "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-                part_name: "\u0432\u0438\u0457\u0437\u0434",
-                exec_status: "HD",
-                planned_start: "2020-11-03",
-                planned_finish: "2020-11-04",
-                start_date: "2020-11-04",
-                finish_date: "2020-11-04",
-              },
-              {
-                pk: 25246,
-                executor:
-                  "\u041b\u0435\u0432\u0447\u0435\u043d\u043a\u043e \u042f\u0440\u043e\u0441\u043b\u0430\u0432",
-                part_name: "\u0432\u0438\u0457\u0437\u0434",
-                exec_status: "HD",
-                planned_start: "2020-11-03",
-                planned_finish: "2020-11-04",
-                start_date: "2020-11-04",
-                finish_date: "2020-11-04",
-              },
-            ],
-          },
-          {
-            pk: 8298,
-            object_code: "UU0900 \u0431\u043e\u0440\u0433",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "ST",
-            planned_start: "2020-08-07",
-            planned_finish: "2020-09-25",
-            tasks: [
-              {
-                pk: 25036,
-                executor:
-                  "\u0410\u0440\u0433\u0443\u0442\u0430 \u0421\u0435\u0440\u0433\u0456\u0439",
-                part_name:
-                  "\u041f\u0417, \u0434\u043e\u0434\u0430\u0442\u043a\u0438",
-                exec_status: "HD",
-                planned_start: "None",
-                planned_finish: "2020-11-04",
-                start_date: "2020-11-03",
-                finish_date: "2020-11-04",
-              },
-            ],
-          },
-          {
-            pk: 8432,
-            object_code: "UT1888 \u0436\u043e\u0432\u0442\u0435\u043d\u044c",
-            owner:
-              "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-09-21",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25120,
-                executor:
-                  "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
-                part_name: "\u043e\u0432\u043d\u0441",
-                exec_status: "OC",
-                planned_start: "2020-10-26",
-                planned_finish: "2020-11-06",
-                start_date: "2020-11-05",
-                finish_date: "2020-11-05",
-              },
-            ],
-          },
-          {
-            pk: 8558,
-            object_code: "UV0649",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-10-30",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25218,
-                executor:
-                  "\u041c\u0430\u0440\u0430\u0445\u043e\u0432\u0441\u044c\u043a\u0430 \u0412\u0456\u0440\u0430",
-                part_name: "\u0441\u0445\u0435\u043c\u0430",
-                exec_status: "OC",
-                planned_start: "None",
-                planned_finish: "2020-11-04",
-                start_date: "2020-10-30",
-                finish_date: "2020-11-04",
-              },
-            ],
-          },
-          {
-            pk: 8559,
-            object_code: "UV0650",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-10-30",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25220,
-                executor:
-                  "\u041c\u0430\u0440\u0430\u0445\u043e\u0432\u0441\u044c\u043a\u0430 \u0412\u0456\u0440\u0430",
-                part_name: "\u0421\u0445\u0435\u043c\u0430",
-                exec_status: "OC",
-                planned_start: "None",
-                planned_finish: "2020-11-05",
-                start_date: "2020-11-04",
-                finish_date: "2020-11-05",
-              },
-            ],
-          },
-          {
-            pk: 8563,
-            object_code: "UL4945",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "ST",
-            planned_start: "2020-11-02",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25268,
-                executor:
-                  "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-                part_name: "\u0417\u0432\u0456\u0442",
-                exec_status: "HD",
-                planned_start: "None",
-                planned_finish: "2020-11-04",
-                start_date: "2020-11-03",
-                finish_date: "2020-11-04",
-              },
-            ],
-          },
-          {
-            pk: 8435,
-            object_code: "UT0846 \u0436\u043e\u0432\u0442\u0435\u043d\u044c",
-            owner:
-              "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-            exec_status: "HD",
-            planned_start: "2020-09-21",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25213,
-                executor:
-                  "\u0421\u0430\u0447\u0443\u043a \u0421\u0432\u044f\u0442\u043e\u0441\u043b\u0430\u0432",
-                part_name: "\u0437\u0432\u0456\u0442",
-                exec_status: "HD",
-                planned_start: "2020-10-30",
-                planned_finish: "2020-11-02",
-                start_date: "2020-10-30",
-                finish_date: "2020-11-03",
-              },
-            ],
-          },
-          {
-            pk: 8560,
-            object_code: "UV0661",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "IP",
-            planned_start: "2020-10-30",
-            planned_finish: "2020-11-30",
-            tasks: [
-              {
-                pk: 25219,
-                executor:
-                  "\u041c\u0430\u0440\u0430\u0445\u043e\u0432\u0441\u044c\u043a\u0430 \u0412\u0456\u0440\u0430",
-                part_name: "\u0441\u0445\u0435\u043c\u0430",
-                exec_status: "OC",
-                planned_start: "None",
-                planned_finish: "2020-11-06",
-                start_date: "2020-11-04",
-                finish_date: "2020-11-05",
-              },
-            ],
-          },
-          {
-            pk: 8311,
-            object_code: "LVI KLC CNT",
-            owner:
-              "\u0414\u0435\u0445\u0442\u044f\u0440 \u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-            exec_status: "HD",
-            planned_start: "2020-10-01",
-            planned_finish: "2020-10-20",
-            tasks: [
-              {
-                pk: 24981,
-                executor:
-                  "\u0421\u0442\u0443\u043b\u043e\u0432 \u0412\u0430\u0434\u0438\u043c",
-                part_name: "\u043e\u0432\u043d\u0441",
-                exec_status: "HD",
-                planned_start: "2020-11-02",
-                planned_finish: "2020-11-03",
-                start_date: "2020-11-02",
-                finish_date: "2020-11-03",
-              },
-              {
-                pk: 25225,
-                executor:
-                  "\u0414\u0437\u044e\u0440\u0430 \u0410\u043d\u0434\u0440\u0456\u0439",
-                part_name:
-                  "\u0440\u043f \u0431\u0435\u0437 \u0437\u043e\u0432\u043d\u0456\u0448\u043d\u044c\u043e\u0433\u043e",
-                exec_status: "HD",
-                planned_start: "2020-11-02",
-                planned_finish: "2020-11-04",
-                start_date: "2020-11-02",
-                finish_date: "2020-11-03",
-              },
-            ],
-          },
-          {
-            pk: 8441,
-            object_code: "UU0648",
-            owner:
-              "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-            exec_status: "ST",
-            planned_start: "2020-09-22",
-            planned_finish: "2020-10-31",
-            tasks: [
-              {
-                pk: 25223,
-                executor:
-                  "\u041a\u0440\u0438\u0432\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439",
-                part_name: "\u0417\u0432\u0456\u0442",
-                exec_status: "HD",
-                planned_start: "None",
-                planned_finish: "2020-11-02",
-                start_date: "2020-11-03",
-                finish_date: "2020-11-03",
               },
             ],
           },
