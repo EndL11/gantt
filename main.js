@@ -183,21 +183,27 @@ function editValue(list, task, event, cell, column) {
   let fieldName = (column === "pPlanStart") ? "planned_start" : "planned_finish";
   const editObject = {pk, [fieldName]: newValue, task_type: apiType}
   console.log(editObject);
-  const csrfToken = getCookie('CSRF-TOKEN');
-  fetch("change/", {
-    method: 'POST', // или 'PUT'
-    body: JSON.stringify(editObject), // данные могут быть 'строкой' или {объектом}!
-    headers: {
-      'Content-Type': 'application/json',
-      'X-CSRF-TOKEN': csrfToken
-    }
-  })
+  editPostRequest(editObject);
   const found = list.find((item) => item.pID == task.getOriginalID());
   if (!found) {
     return;
   } else {
     found[column] = event ? event.target.value : "";
   }
+}
+
+function editPostRequest(object){
+  const csrfToken = getCookie('CSRF-TOKEN');
+  console.log("COOKIES:", document.cookie);
+  console.log("csrfToken:", csrfToken);
+  fetch("change/", {
+    method: 'POST', 
+    body: JSON.stringify(object), 
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRFToken': csrfToken
+    }
+  })
 }
 
 function createTask(obj, g) {
