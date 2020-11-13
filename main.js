@@ -196,15 +196,11 @@ function editPostRequest(object){
   const csrfToken = getCookie('csrftoken');
   console.log("COOKIES:", document.cookie);
   console.log("csrfToken:", csrfToken);
-  fetch("change/", {
-    method: 'POST', 
-    body: JSON.stringify(object), 
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'X-CSRFToken': csrfToken
-    }
-  })
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "change/", true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.setRequestHeader('X-CSRFToken', csrfToken);
+  xhr.send(JSON.stringify(object));
 }
 
 function createTask(obj, g) {
