@@ -166,18 +166,15 @@ function editValue(list, task, event, cell, column) {
   const apiType = task.getGroup() == 1 ? "project" : "task";
   const newValue = event.target.value.trim();
   let fieldName = (column === "pPlanStart") ? "planned_start" : "planned_finish";
-  // const api_request = `/${apiType}/${pk}/?${fieldName}=${newValue}`;
-  // console.log(api_request);
   const editObject = {pk, [fieldName]: newValue, task_type: apiType}
   console.log(editObject);
-  fetch("sprint/gantt/change/", {
+  fetch("change/", {
     method: 'POST', // или 'PUT'
     body: JSON.stringify(editObject), // данные могут быть 'строкой' или {объектом}!
     headers: {
       'Content-Type': 'application/json'
     }
   })
-  //console.log(list, task, event, cell, column);
   const found = list.find((item) => item.pID == task.getOriginalID());
   if (!found) {
     return;
