@@ -203,8 +203,8 @@ function editPostRequest(object){
     method: 'POST', 
     body: object, 
     headers: {
-      'Content-Type': 'application/json',
-      'X-CSRFToken': csrfToken
+      'X-CSRFToken': csrfToken,
+      'X-Requested-With': 'XMLHttpRequest'
     }
   })
 }
