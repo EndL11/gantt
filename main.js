@@ -200,6 +200,7 @@ function editPostRequest(object){
     method: 'POST', 
     body: JSON.stringify(object), 
     headers: {
+      'Accept': 'application/json',
       'Content-Type': 'application/json',
       'X-CSRFToken': csrfToken
     }
