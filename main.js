@@ -193,7 +193,7 @@ function editValue(list, task, event, cell, column) {
 }
 
 function editPostRequest(object){
-  const csrfToken = getCookie('CSRF-TOKEN');
+  const csrfToken = getCookie('csrftoken');
   console.log("COOKIES:", document.cookie);
   console.log("csrfToken:", csrfToken);
   fetch("change/", {
