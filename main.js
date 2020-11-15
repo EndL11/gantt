@@ -181,13 +181,10 @@ function editValue(list, task, event, cell, column) {
   const apiType = task.getGroup() == 1 ? "project" : "task";
   const newValue = event.target.value.trim();
   let fieldName = (column === "pPlanStart") ? "planned_start" : "planned_finish";
-  const editObject = {pk, [fieldName]: newValue, task_type: apiType}
-  console.log(editObject);
   var formData = new FormData();
   formData.append("pk", pk);
   formData.append(fieldName, newValue);
   formData.append("task_type", apiType);
-  console.log(formData);
   editPostRequest(formData);
   const found = list.find((item) => item.pID == task.getOriginalID());
   if (!found) {
@@ -228,11 +225,9 @@ function createTask(obj, g) {
     obj.tasks.forEach((task) => {
       const ganttObj = createTask(task, g);
       ganttObj.pParent = obj.pk; //  set parent id from project
-      console.log("Task:", ganttObj);
       g.AddTaskItemObject(ganttObj);
     });
   }
-  console.log("Project:", newObject);
 
   return newObject;
 }
@@ -291,7 +286,6 @@ function setCommonPropertiesToGanttObject(incomeObject, ganntObject) {
   if (incomeObject.planned_start === "None") {
     ganntObject.pPlanStart = " ";    
   }
-  console.log(ganntObject);
   return ganntObject;
 }
 
