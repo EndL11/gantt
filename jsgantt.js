@@ -4843,7 +4843,7 @@ exports.AddXMLTask = function (pGanttVar, pXmlDoc) {
         project = projNode[0].getAttribute('xmlns');
     }
     if (project == 'http://schemas.microsoft.com/project') {
-        pGanttVar.setDateInputFormat('yyyy-mm-dd');
+        pGanttVar.setDateInputFormat('dd/mm/yyyy');
         Task = exports.findXMLNode(pXmlDoc, 'Task');
         if (typeof Task == 'undefined')
             n = 0;

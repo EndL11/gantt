@@ -99,7 +99,7 @@ const ganttSettings = {
   vMonthColWidth: 128,
   vQuarterColWidth: 256,
   vTooltipDelay: 1000,
-  vDateTaskDisplayFormat: "day dd month yyyy", // Shown in tool tip box
+  vDateTaskDisplayFormat: "DAY dd month yyyy", // Shown in tool tip box
   vDayMajorDateDisplayFormat: "mon yyyy - Week ww", // Set format to dates in the "Major" header of the "Day" view
   vWeekMinorDateDisplayFormat: "dd mon", // Set format to display dates in the "Minor" header of the "Week" view
   vLang: "ua",
@@ -149,11 +149,11 @@ const setup = async () => {
   );
   g.addLang("ua", urk_lang);
   g.setOptions(ganttSettings);
-
+  
   data.projects.forEach((el) => {
     g.AddTaskItemObject(createTask(el, g));
   });
-
+  g.setColumnOrder([ "vShowRes","vAdditionalHeaders","vShowStartDate","vShowEndDate","vShowPlanStartDate","vShowPlanEndDate","vShowDur"]);
   g.setTotalHeight("92vh");
   g.setShowTaskInfoComp(false);
   g.setScrollTo("today");
@@ -259,7 +259,6 @@ function afterDrawHandler() {
   hideElementsInputBySelector(".gstartdate div, .genddate div"); //  hiding inputs in start and end date columns
   hideElementsInputBySelector(".glineitem .gresource div"); //  hiding inputs in resource column
   hideInputsFromTaskName(".glineitem .gtaskname div");
-  swapStatusDuringColumns();
   addingEditProjectLink(".ggroupitem .gtaskname div:first-child");
 }
 
@@ -287,19 +286,6 @@ function setCommonPropertiesToGanttObject(incomeObject, ganntObject) {
     ganntObject.pPlanStart = " ";    
   }
   return ganntObject;
-}
-
-function swapStatusDuringColumns() {
-  const duringColumnSelector = ".gduration";
-  const statusColumnSelector = ".gadditional.gadditional-status";
-  const allStatusCells = document.querySelectorAll(statusColumnSelector);
-  const allDuringCells = document.querySelectorAll(duringColumnSelector);
-  for (let i = 0; i < allDuringCells.length; i++) {
-    const nextToDuring = allDuringCells[i].nextSibling;
-    const prevToStatus = allStatusCells[i].previousSibling;
-    prevToStatus.after(allDuringCells[i]);
-    nextToDuring.before(allStatusCells[i]);
-  }
 }
 
 function addingEditProjectLink(selector) {
