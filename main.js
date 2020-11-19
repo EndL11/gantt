@@ -222,30 +222,6 @@ function createTask(obj, g) {
   return newObject;
 }
 
-function hideElementsInputBySelector(selector) {
-  const allSelectorElement = document.querySelectorAll(selector);
-  for (let i = 0; i < allSelectorElement?.length; i++) {
-    let inputValue = allSelectorElement[i].firstChild.value; //  take value of input or select
-    if(selector.includes("date")){
-        const dateArray = allSelectorElement[i].firstChild.value.split("-");
-        inputValue = dateArray.length > 1 ? `${dateArray[2]}-${dateArray[1]}-${dateArray[0]}` : "";
-    }
-    allSelectorElement[i].firstChild.remove(); //  delete node
-    allSelectorElement[i].innerHTML = inputValue; //  paste value of input or select into div
-  }
-}
-
-function hideInputsFromTaskName(selector) {
-  const allSelectorElement = document.querySelectorAll(selector);
-  for (let i = 0; i < allSelectorElement?.length; i++) {
-    const inputValue =
-      "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-      allSelectorElement[i].lastChild.value; //  take value of input or select
-    allSelectorElement[i].lastChild.remove(); //  delete node
-    allSelectorElement[i].innerHTML = inputValue; //  paste value of input or select into div
-  }
-}
-
 function afterDrawHandler(g) {
   console.log("after draw listener");
   addingEditProjectLink(".ggroupitem .gtaskname div:first-child");
