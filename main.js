@@ -91,62 +91,52 @@ const status = {
   CL: "Відмінено",
 };
 
-const ganttSettings = {
-  vCaptionType: "Caption", // Set to Show Caption : None,Caption,Resource,Duration,Complete,
-  vHourColWidth: 16,
-  vDayColWidth: 32,
-  vWeekColWidth: 64,
-  vMonthColWidth: 128,
-  vQuarterColWidth: 256,
-  vTooltipDelay: 1000,
-  vDateTaskDisplayFormat: "DAY dd month yyyy", // Shown in tool tip box
-  vDayMajorDateDisplayFormat: "mon yyyy - Week ww", // Set format to dates in the "Major" header of the "Day" view
-  vWeekMinorDateDisplayFormat: "dd mon", // Set format to display dates in the "Minor" header of the "Week" view
-  vLang: "ua",
-  vShowTaskInfoLink: 0, // Show link in tool tip (0/1)
-  vShowEndWeekDate: 0, // Show/Hide the date for the last day of the week in header for daily
-  vAdditionalHeaders: {
-    // Add data columns to your table
-    status: {
-      title: "Статус",
-    },
-  },
-  vEvents: {
-    // taskname: console.log,
-    // res: console.log,
-    // start: console.log,
-    // end: console.log,
-    // planstart: console.log,
-    // planend: console.log,
-    beforeDraw: () => console.log("before draw listener"),
-    afterDraw: afterDrawHandler,
-  },
-  vEventsChange: {
-    // taskname: editValue, // if you need to use the this scope, do: editValue.bind(this)
-    // res: editValue,
-    // dur: editValue,
-    // start: editValue,
-    // end: editValue,
-    planstart: editValue,
-    planend: editValue,
-  },
-  vEditable: true,
-  vUseSort: true,
-  vShowCost: false,
-  vShowRes: data?.view_mode == "project_view" ? 1 : 0,
-  vShowAddEntries: false,
-  vShowComp: false,
-  vShowPlanStartDate: true,
-  vShowPlanEndDate: true,
-  vUseSingleCell: 35000, // Set the threshold cell per table row (Helps performance for large data.
-  vFormatArr: ["Day", "Week", "Month", "Quarter"], // Even with setUseSingleCell using Hour format on such a large chart can cause issues in some browsers,
-};
-
 const setup = async () => {
   var g = new JSGantt.GanttChart(
     document.getElementById("GanttChartDIV"),
     "day"
   );
+  const ganttSettings = {
+    vCaptionType: "Caption", // Set to Show Caption : None,Caption,Resource,Duration,Complete,
+    vHourColWidth: 16,
+    vDayColWidth: 32,
+    vWeekColWidth: 64,
+    vMonthColWidth: 128,
+    vQuarterColWidth: 256,
+    vTooltipDelay: 1000,
+    vDateTaskDisplayFormat: "DAY dd month yyyy", // Shown in tool tip box
+    vDayMajorDateDisplayFormat: "mon yyyy - Week ww", // Set format to dates in the "Major" header of the "Day" view
+    vWeekMinorDateDisplayFormat: "dd mon", // Set format to display dates in the "Minor" header of the "Week" view
+    vLang: "ua",
+    vShowTaskInfoLink: 0, // Show link in tool tip (0/1)
+    vShowEndWeekDate: 0, // Show/Hide the date for the last day of the week in header for daily
+    vAdditionalHeaders: {
+      // Add data columns to your table
+      status: {
+        title: "Статус",
+      },
+    },
+    vEvents: {
+      beforeDraw: () => console.log("before draw listener"),
+      afterDraw: () => afterDrawHandler(g),
+    },
+    vEventsChange: {
+      planstart: editValue,
+      planend: editValue,
+    },
+    vUseSort: true,
+    vShowCost: false,
+    vShowRes: data?.view_mode == "project_view" ? 1 : 0,
+    vShowAddEntries: false,
+    vShowComp: false,
+    vShowPlanStartDate: true,
+    vShowPlanEndDate: true,
+    vUseSingleCell: 35000, // Set the threshold cell per table row (Helps performance for large data.
+    vFormatArr: ["Day", "Week", "Month", "Quarter"], // Even with setUseSingleCell using Hour format on such a large chart can cause issues in some browsers,
+  };
+
+  console.log(g);
+
   g.addLang("ua", urk_lang);
   g.setOptions(ganttSettings);
   
@@ -176,7 +166,7 @@ function getCookie(name) {
 }
 
 function editValue(list, task, event, cell, column) {
-  console.log(event);
+  console.log(list, task, event, cell, column);
   const pk = task.getOriginalID();
   const apiType = task.getGroup() == 1 ? "project" : "task";
   const newValue = event.target.value.trim();
@@ -235,7 +225,11 @@ function createTask(obj, g) {
 function hideElementsInputBySelector(selector) {
   const allSelectorElement = document.querySelectorAll(selector);
   for (let i = 0; i < allSelectorElement?.length; i++) {
-    const inputValue = allSelectorElement[i].firstChild.value; //  take value of input or select
+    let inputValue = allSelectorElement[i].firstChild.value; //  take value of input or select
+    if(selector.includes("date")){
+        const dateArray = allSelectorElement[i].firstChild.value.split("-");
+        inputValue = dateArray.length > 1 ? `${dateArray[2]}-${dateArray[1]}-${dateArray[0]}` : "";
+    }
     allSelectorElement[i].firstChild.remove(); //  delete node
     allSelectorElement[i].innerHTML = inputValue; //  paste value of input or select into div
   }
@@ -252,14 +246,10 @@ function hideInputsFromTaskName(selector) {
   }
 }
 
-function afterDrawHandler() {
+function afterDrawHandler(g) {
   console.log("after draw listener");
-  hideElementsInputBySelector(".gduration div"); //  hiding inputs in duration column
-  hideElementsInputBySelector(".ggroupitem .gresource div"); //  hiding inputs in project resource column
-  hideElementsInputBySelector(".gstartdate div, .genddate div"); //  hiding inputs in start and end date columns
-  hideElementsInputBySelector(".glineitem .gresource div"); //  hiding inputs in resource column
-  hideInputsFromTaskName(".glineitem .gtaskname div");
   addingEditProjectLink(".ggroupitem .gtaskname div:first-child");
+  addingEditingInputToPlanDates(".gplanstartdate div, .gplanenddate div", g)
 }
 
 function setCommonPropertiesToGanttObject(incomeObject, ganntObject) {
@@ -300,6 +290,23 @@ function addingEditProjectLink(selector) {
     wrapper.setAttribute("href", `/project/${pk}/change`);
     wrapper.innerHTML = `<i style="font-size: 16px;" data-toggle="tooltip" title="" data-placement="right" class="far fa-sticky-note" data-original-title="Відкрити редагування проекту"></i>`;
     item.appendChild(wrapper);
+  });
+}
+
+function addingEditingInputToPlanDates(selector, g){
+  const nodes = document.querySelectorAll(selector);
+  nodes.forEach(node => {
+    const nodeValueArr = node.innerText.split("/");
+    const nodeValue = `${nodeValueArr[2]}-${nodeValueArr[1]}-${nodeValueArr[0]}`;
+    const input = document.createElement("input");
+    input.setAttribute("type", "date");
+    input.setAttribute("class", "gantt-inputtable");
+    input.setAttribute("value", nodeValue);
+    node.innerText = "";
+    node.appendChild(input);
+    const id = node.parentNode.parentNode.getAttribute("id").split("_")[1];
+    const columnName = node.parentNode.getAttribute("class").replace("g", " ").replace("date", " ").trim();
+    g.addListenerInputCellCustom(node.parentNode, columnName, g.vEventsChange, g.getEventsClickCell(), g.getList(), g.getArrayLocationByID(id));
   });
 }
 
