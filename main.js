@@ -135,8 +135,6 @@ const setup = async () => {
     vFormatArr: ["Day", "Week", "Month", "Quarter"], // Even with setUseSingleCell using Hour format on such a large chart can cause issues in some browsers,
   };
 
-  console.log(g);
-
   g.addLang("ua", urk_lang);
   g.setOptions(ganttSettings);
   
