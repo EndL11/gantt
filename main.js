@@ -257,10 +257,8 @@ function setCommonPropertiesToGanttObject(incomeObject, ganntObject) {
 function addingEditProjectLink(selector) {
   const items = document.querySelectorAll(selector);
   items.forEach((item) => {
+    const pk = item.lastChild.getAttribute("pk");
     const wrapper = document.createElement("a");
-    const pk = data.projects.find(
-      (row) => row.object_code === item.textContent.slice(1).trim()
-    ).pk;
     wrapper.classList.add("edit_project_link");
     wrapper.setAttribute("target", "_blank");
     wrapper.setAttribute("href", `/project/${pk}/change`);
