@@ -3820,7 +3820,7 @@ exports.processRows = function (pList, pID, pRow, pLevel, pOpen, pUseSort, vDebu
         }
         else{
             let _planStart = pList[pRow].getGroupMinPlanStart();
-            if(vMinPlanDate.getTime() < _planStart.getTime()){
+            if(_planStart !== null && vMinPlanDate.getTime() < _planStart?.getTime()){
                 _planStart = vMinPlanDate;
             }
             vMinDate = (_planStart != null && _planStart != '') ? new Date(_planStart) : new Date("");
