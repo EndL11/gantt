@@ -1,4 +1,5 @@
 const commonProperties = {
+  // required properties of incoming object
   pID: "pk",
   pStart: "start_date",
   pEnd: "finish_date",
@@ -92,22 +93,23 @@ const status = {
 };
 
 const setup = async () => {
+  //  Creating gantt chart
   var g = new JSGantt.GanttChart(
     document.getElementById("GanttChartDIV"),
     "day"
   );
   const ganttSettings = {
     vCaptionType: "Caption", // Set to Show Caption : None,Caption,Resource,Duration,Complete,
-    vHourColWidth: 16,
+    //  Column width for each chart view (for day, week, month, quarter)
     vDayColWidth: 32,
     vWeekColWidth: 64,
     vMonthColWidth: 128,
     vQuarterColWidth: 256,
-    vTooltipDelay: 1000,
+    vTooltipDelay: 1000,  //  Delay for tooltip hiding
     vDateTaskDisplayFormat: "DAY dd month yyyy", // Shown in tool tip box
     vDayMajorDateDisplayFormat: "mon yyyy - Week ww", // Set format to dates in the "Major" header of the "Day" view
     vWeekMinorDateDisplayFormat: "dd mon", // Set format to display dates in the "Minor" header of the "Week" view
-    vLang: "ua",
+    vLang: "ua",  //  Setting language for gantt chart
     vShowTaskInfoLink: 0, // Show link in tool tip (0/1)
     vShowEndWeekDate: 0, // Show/Hide the date for the last day of the week in header for daily
     vAdditionalHeaders: {
@@ -124,31 +126,36 @@ const setup = async () => {
       planstart: editValue,
       planend: editValue,
     },
-    vUseSort: true,
-    vShowCost: false,
-    vShowRes: data?.view_mode == "project_view" ? 1 : 0,
-    vShowAddEntries: false,
-    vShowComp: false,
-    vShowPlanStartDate: true,
-    vShowPlanEndDate: true,
+    vShowCost: false, // Hide cost of tasks
+    vShowRes: data?.view_mode == "project_view" ? 1 : 0,  // Show resource column if it's project view
+    vShowAddEntries: false, // Hide showing "add button"
+    vShowComp: false, // Hide showing % of done
+    vShowPlanStartDate: true, // Show plan start date in table
+    vShowPlanEndDate: true, //  Show plan end date in table
     vUseSingleCell: 35000, // Set the threshold cell per table row (Helps performance for large data.
     vFormatArr: ["Day", "Week", "Month", "Quarter"], // Even with setUseSingleCell using Hour format on such a large chart can cause issues in some browsers,
   };
 
-  g.addLang("ua", urk_lang);
-  g.setOptions(ganttSettings);
+  g.addLang("ua", urk_lang);    //  Add urk language (key, object)
+  g.setOptions(ganttSettings);  //  Set settings for gantt
   
   data.projects.forEach((el) => {
-    g.AddTaskItemObject(createTask(el, g));
+    g.AddTaskItemObject(createTask(el, g)); // Creating and adding object for gantt chart
   });
+  //  Set column order
   g.setColumnOrder([ "vShowRes","vAdditionalHeaders","vShowStartDate","vShowEndDate","vShowPlanStartDate","vShowPlanEndDate","vShowDur"]);
+  //  Set total height for gantt
   g.setTotalHeight("92vh");
+  //  Hide % of complete task in tooltip
   g.setShowTaskInfoComp(false);
+  //  Scroll chart to today
   g.setScrollTo("today");
+  //  Draw chart
   g.Draw();
 };
 
 function getCookie(name) {
+  //  function for getting cookie value by name
   if (!document.cookie) {
     return null;
   }
@@ -164,10 +171,10 @@ function getCookie(name) {
 }
 
 function editValue(list, task, event, cell, column) {
-  console.log(list, task, event, cell, column);
+  //  Handler for "change" event
   const pk = task.getOriginalID();
   const apiType = task.getGroup() == 1 ? "project" : "task";
-  const newValue = event.target.value.trim();
+  const newValue = event.target.value.trim(); //  Getting new value
   let fieldName = (column === "pPlanStart") ? "planned_start" : "planned_finish";
   var formData = new FormData();
   formData.append("pk", pk);
@@ -183,6 +190,7 @@ function editValue(list, task, event, cell, column) {
 }
 
 function editPostRequest(object){
+  //  function for sending post request to backend for editing object
   const csrfToken = getCookie('csrftoken');
   fetch("change/", {
     method: 'POST', 
@@ -199,31 +207,32 @@ function createTask(obj, g) {
   //  returns object for jsgantt chart
 
   let newObject = {};
-  const isProject = obj.hasOwnProperty("tasks");
-  newObject = setCommonPropertiesToGanttObject(obj, newObject);
+  const isProject = obj.hasOwnProperty("tasks");  //  if incoming object has property "tasks" it means it's project
+  newObject = setCommonPropertiesToGanttObject(obj, newObject); //  Set common properties for gantt object
   newObject.pClass = `task_${obj.exec_status.toLowerCase()}`; //  set custom class for task
   newObject.pComp = 0; //  % of complete
-  newObject.pName = isProject ? obj.object_code : obj.part_name;
-  newObject.pRes = isProject ? obj.owner : obj.executor;
+  newObject.pName = isProject ? obj.object_code : obj.part_name;  //  Set name for gantt object
+  newObject.pRes = isProject ? obj.owner : obj.executor;  //  Set Resource
   newObject.pGroup = isProject ? 1 : 0; //  1 for project task, 0 for task
-  newObject.pParent = isProject ? 0 : "";
+  newObject.pParent = isProject ? 0 : ""; //  if incoming object project - set 0, otherwise we set it later for each task (set pk for pParent)
   newObject.pOpen = 1; //  0 for rendering colapsed projects and tasks
-  newObject.pCaption = isProject ? obj.object_code : obj.part_name;
+  newObject.pCaption = isProject ? obj.object_code : obj.part_name; //  Set caption to show on chart (for each task/project)
   if (isProject) {
+    //  create, set parent id and add each task of project to gantt chart
     obj.tasks.forEach((task) => {
       const ganttObj = createTask(task, g);
       ganttObj.pParent = obj.pk; //  set parent id from project
-      g.AddTaskItemObject(ganttObj);
+      g.AddTaskItemObject(ganttObj);  //  Add task to gantt chart
     });
   }
-
   return newObject;
 }
 
 function afterDrawHandler(g) {
+  //  handler for after draw event of gantt chart
   console.log("after draw listener");
-  addingEditProjectLink(".ggroupitem .gtaskname div:first-child");
-  addingEditingInputToPlanDates(".gplanstartdate div, .gplanenddate div", g)
+  addingEditProjectLink(".ggroupitem .gtaskname div:first-child");  //  Find and add edit link(icon) for each project task on chart
+  addingEditingInputToPlanDates(".gplanstartdate div, .gplanenddate div", g);  // Find and add input for each cell of plan start and plan end date
 }
 
 function setCommonPropertiesToGanttObject(incomeObject, ganntObject) {
@@ -233,51 +242,55 @@ function setCommonPropertiesToGanttObject(incomeObject, ganntObject) {
       ganntObject[key] = status[incomeObject[dataProperty]]; //  take status value for status collection
       return;
     }
-    if (incomeObject.hasOwnProperty(dataProperty) === false) {
-      ganntObject[key] = null;
-      return;
-    }
     ganntObject[key] = incomeObject[dataProperty]; //  take dynamic key for object from properties of jsgantt value
   });
-
   if (incomeObject.start_date === "None") {
     ganntObject.pStart = null;    
   }
   if(incomeObject.finish_date === "None"){
     ganntObject.pEnd = null;
   }
-  if (incomeObject.planned_start === "None") {
-    ganntObject.pPlanStart = " ";    
-  }
   return ganntObject;
 }
 
 function addingEditProjectLink(selector) {
+  //  Add link for editing project to all elements by selector
   const items = document.querySelectorAll(selector);
   items.forEach((item) => {
-    const pk = item.lastChild.getAttribute("pk");
-    const wrapper = document.createElement("a");
-    wrapper.classList.add("edit_project_link");
-    wrapper.setAttribute("target", "_blank");
-    wrapper.setAttribute("href", `/project/${pk}/change`);
-    wrapper.innerHTML = `<i style="font-size: 16px;" data-toggle="tooltip" title="" data-placement="right" class="far fa-sticky-note" data-original-title="Відкрити редагування проекту"></i>`;
-    item.appendChild(wrapper);
+    const pk = item.lastChild.getAttribute("pk"); //  Get pk in attribute from last child in selector
+    const link = document.createElement("a");  //  Create "a" element
+    link.classList.add("edit_project_link");
+    link.setAttribute("target", "_blank");
+    link.setAttribute("href", `/project/${pk}/change`);
+    link.innerHTML = `<i style="font-size: 16px;" data-toggle="tooltip" title="" data-placement="right" class="far fa-sticky-note" data-original-title="Відкрити редагування проекту"></i>`;
+    item.appendChild(link); //  Insert link into selector element 
   });
 }
 
 function addingEditingInputToPlanDates(selector, g){
-  const nodes = document.querySelectorAll(selector);
+  //  Add input for editing plan dates
+  //  Selector = plan start and plan end class
+  const nodes = document.querySelectorAll(selector);  //  Get array of elements by parametrized selector
   nodes.forEach(node => {
-    const nodeValueArr = node.innerText.split("/");
-    const nodeValue = `${nodeValueArr[2]}-${nodeValueArr[1]}-${nodeValueArr[0]}`;
-    const input = document.createElement("input");
-    input.setAttribute("type", "date");
-    input.setAttribute("class", "gantt-inputtable");
-    input.setAttribute("value", nodeValue);
-    node.innerText = "";
-    node.appendChild(input);
-    const id = node.parentNode.parentNode.getAttribute("id").split("_")[1];
-    const columnName = node.parentNode.getAttribute("class").replace("g", " ").replace("date", " ").trim();
+    const nodeValueArr = node.innerText.split("/"); //  Get array of data part (dd/mm/yyyy)
+    const nodeValue = `${nodeValueArr[2]}-${nodeValueArr[1]}-${nodeValueArr[0]}`; //  Set value for input by format (yyyy-mm-dd)
+    const input = document.createElement("input");  //  Create input element
+    input.setAttribute("type", "date"); //  Set type "date"
+    input.setAttribute("class", "gantt-inputtable");  //  Set gantt class for inputs
+    input.setAttribute("value", nodeValue); //  Set correct for input date value
+    node.innerText = "";  //  Clear text into plan start and plan end cell
+    node.appendChild(input);  // Insert input into cell
+    const id = node.parentNode.parentNode.getAttribute("id").split("_")[1]; //  Get id of <tr> element in "id" attribute
+    //  Get column name from cell classname (get classname, replace unnecessary classname parts) for creating gantt "change" event 
+    const columnName = node.parentNode.getAttribute("class").replace("g", " ").replace("date", " ").trim(); 
+    //  Set gantt event "change" for each input in task by custom function in gantt library
+    //  Set:
+    //  parent node (cell), 
+    //  column name (planstart/planend), 
+    //  object for handling "change" event from gantt chart object,
+    //  object for handling "click" event from gantt chart object, 
+    //  list with all tasks
+    //  get id for task
     g.addListenerInputCellCustom(node.parentNode, columnName, g.vEventsChange, g.getEventsClickCell(), g.getList(), g.getArrayLocationByID(id));
   });
 }
