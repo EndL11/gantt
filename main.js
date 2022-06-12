@@ -101,7 +101,7 @@ const setup = async () => {
   const ganttSettings = {
     vCaptionType: "Caption", // Set to Show Caption : None,Caption,Resource,Duration,Complete,
     //  Column width for each chart view (for day, week, month, quarter)
-    vDayColWidth: 32,
+    vDayColWidth: 64,
     vWeekColWidth: 64,
     vMonthColWidth: 128,
     vQuarterColWidth: 256,
@@ -152,6 +152,10 @@ const setup = async () => {
   g.setScrollTo("today");
   //  Draw chart
   g.Draw();
+
+  const response = await fetch("https://erp.itel.rv.ua/api/gantt/project/");
+  const {data: dd} = response.json();
+  console.log(dd);
 };
 
 function getCookie(name) {
@@ -215,7 +219,7 @@ function createTask(obj, g) {
   newObject.pRes = isProject ? obj.owner : obj.executor;  //  Set Resource
   newObject.pGroup = isProject ? 1 : 0; //  1 for project task, 0 for task
   newObject.pParent = isProject ? 0 : ""; //  if incoming object project - set 0, otherwise we set it later for each task (set pk for pParent)
-  newObject.pOpen = 1; //  0 for rendering colapsed projects and tasks
+  newObject.pOpen = 0; //  0 for rendering colapsed projects and tasks
   newObject.pCaption = isProject ? obj.object_code : obj.part_name; //  Set caption to show on chart (for each task/project)
   if (isProject) {
     //  create, set parent id and add each task of project to gantt chart
